@@ -1,0 +1,250 @@
+// Sourcing Details
+.sourcing-details {
+  @extend %list-reset;
+  @include clearfix;
+  text-align: center;
+  white-space: normal;
+
+  .sourcing-detail {
+    display: inline-block;
+    width: 32%;
+    padding: 10px;
+    vertical-align: top;
+
+    &__text {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    &__icon {
+      padding: 5px;
+      text-align: center;
+
+      img {
+        display: inline-block;
+        height: 30px;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    white-space: nowrap;
+
+    .sourcing-detail {
+      width: 20%;
+    }
+  }
+}
+
+// WooCommerce Tabs
+.woocommerce-tabs {
+  font-size: 14px;
+
+  .after-single-product & {
+    display: none;
+  }
+
+  .storefront-full-width-content & {
+
+    ul.tabs {
+      border: none;
+
+      li {
+        border: none;
+
+        a {
+          color: black;
+        }
+      }
+
+      @media (min-width: 768px) {
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+
+        li {
+          display: inline-block;
+          margin-right: 1em;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &:after {
+            content: '\f107';
+            right: 0;
+          }
+
+          a {
+            font-size: 14px;
+            padding: 1em 1.5em 1em 0;
+          }
+        }
+      }
+    }
+
+    .panel {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+// Section with addition details for mobile
+.after-single-product {
+  .related {
+    display: none;
+  }
+
+  @media (min-width: $desktop) {
+    .related {
+      display: block;
+    }
+  }
+}
+
+
+
+.storefront-full-width-content.single-product {
+  div.product {
+    @include clearfix;
+    overflow: visible;
+    text-align: center;
+
+
+    .images {
+      @media (min-width: $desktop) {
+        @include span (6 of 12 !important);
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .woocommerce-main-image {
+        margin-bottom: 10px;
+      }
+
+      .thumbnails {
+        display: none;
+
+        @media (min-width: $desktop) {
+          display: block;
+          margin-left: -5px;
+          margin-right: -5px;
+
+          a.zoom {
+            margin: 0;
+            width: 25%;
+            padding-left: 5px;
+            padding-right: 5px;
+          }
+
+          img {
+            width: 100%;
+            display: block;
+          }
+        }
+      }
+    }
+
+    .summary {
+      .button {
+        @extend %button--block;
+      }
+
+      .product_title,
+      .price {
+        font-size: 24px;
+        letter-spacing: 0.1em;
+        line-height: 1;
+        font-family: $font-family-sans-serif;
+        margin-bottom: 1em;
+      }
+
+      @media (min-width: $desktop) {
+        @include span (6 of 12 last);
+        margin-bottom: 0;
+
+        &__content {
+          padding: 30px;
+        }
+
+        .related {
+          display: none;
+        }
+
+        .button {
+          display: inline-block;
+          // width: auto;
+        }
+      }
+    }
+
+    .variations_form {
+      text-align: center;
+      margin-bottom: 0 !important;
+
+      .variations {
+        text-align: center;
+
+        .label {
+          font-family: $font-family-sans-serif;
+          padding-bottom: 5px;
+        }
+
+        .value {
+          select {
+            border: 1px solid black;
+            padding: 1em;
+            border-radius: 0;
+            background-color: transparent;
+          }
+        }
+
+        .reset_variations {
+          color: $accent-color;
+          font-family: $font-family-sans-serif;
+        }
+      }
+
+      .single_variation_wrap {
+        .variations_button {
+          padding-top: 0;
+        }
+
+        .quantity {
+          &:before {
+            content: "Quantity";
+            display: block;
+            margin-bottom: 5px;
+            font-family: $font-family-sans-serif;
+          }
+
+          input {
+            background-color: transparent;
+            border: 1px solid black;
+            color: black;
+            font-family: $font-family-sans-serif;  
+            border-radius: 0;
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+
+
+
+    .product_meta {
+      display: none;
+    }
+  }
+
+  .related {
+    .products {
+      .product {
+
+      }
+    }
+  }
+}

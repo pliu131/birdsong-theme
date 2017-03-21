@@ -1,0 +1,42 @@
+// Mixins
+@mixin image-box {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;;
+  background-position: center !important;;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin type-sans-serif {
+  letter-spacing: 0.1em;
+}
+
+%list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin product-styles {
+  &:nth-child(3n+1),
+  &:nth-child(3n+2),
+  &:nth-child(3n+3) {
+    margin-right: -100% !important;
+  }
+
+  &:nth-child(3n+1) {
+    margin-left: 0 !important;
+    clear: both !important;
+  }
+
+  &:nth-child(3n+2),
+  &:nth-child(3n+3) {
+    clear: none !important;
+  }
+}

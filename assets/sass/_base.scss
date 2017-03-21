@@ -1,0 +1,36 @@
+body {
+  color: black;
+  font-size: 16px;
+  // letter-spacing: 0.1em;
+}
+
+img {
+  border-radius: 0;
+}
+
+table {
+  font-family: $font-family-sans-serif;
+  color: black;
+
+  tbody {
+    td {
+      background-color: transparent;
+    }
+  }
+
+  th {
+    background-color: transparent;
+  }
+}
+
+
+// Products
+h1, h2, h3, h4, h5, h6 {
+  color: black;
+  letter-spacing: 0.1em;
+}
+
+a {
+  font-family: $font-family-sans-serif;
+  letter-spacing: 0.1em;
+}

@@ -23,4 +23,11 @@ function sf_child_theme_dequeue_style() {
  * Note: DO NOT! alter or remove the code above this text and only add your custom PHP functions below this text.
  */
 
+// Remove Sidebar
+add_action( 'get_header', 'remove_storefront_sidebar' );
+function remove_storefront_sidebar() {
+  remove_action( 'storefront_sidebar', 'storefront_get_sidebar', 10 );
+}
 
+// Display 6 products per page. Goes in functions.php
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 6;' ), 20 );

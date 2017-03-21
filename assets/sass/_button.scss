@@ -1,0 +1,16 @@
+.button {
+  font-family: $font-family-sans-serif;
+  padding: 0.3em 1em;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+}
+
+%button--primary {
+  background-color: $accent-color;
+  color: white;
+}
+
+%button--block {
+  display: block;
+  width: 100%;
+}

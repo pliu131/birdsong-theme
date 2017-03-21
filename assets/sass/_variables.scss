@@ -1,0 +1,20 @@
+// layout sizes
+$desktop:     768px;
+$handheld:      568px;
+$container-width: 67.141em;
+
+$susy: (
+  columns: 12,
+  gutters: 1,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+
+  use-custom: (
+    box-sizing: false
+    )
+  );
+
+$font-family-sans-serif: 'relative-bold', sans-serif !important;
+$font-famiy-serif: 'romana', serif !important;
+$accent-color: #fa6560;

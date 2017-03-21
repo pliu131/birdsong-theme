@@ -1,0 +1,30 @@
+label {
+  font-family: $font-family-sans-serif;
+  margin-bottom: 0.5em;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.input-text,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea {
+  background-color: transparent;
+  border: 1px solid black;
+  box-shadow: none;
+  color: black;
+  font-family: $font-family-sans-serif;
+  border-radius: 0;
+
+  &:focus {
+    background-color: transparent;
+  }
+}
+
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 0.5em;
+}

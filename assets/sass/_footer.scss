@@ -1,0 +1,115 @@
+.footer-bottom {
+  @include container;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid $accent-color;
+  
+  &__text {
+    @include span(8 of 12);
+  }
+
+  &__subscribe {
+    @include span(4 of 12 last);
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  // Social Media Icons
+  .textwidget {
+    text-align: center;
+
+    .q_social_icon_holder {
+      margin: 0 !important;
+
+      a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+}
+
+
+.site-info {
+  display: none;
+}
+
+.footer-widgets {
+  // Footer Menu
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    .menu-item {
+      display: inline-block;
+      margin-bottom: 0;
+    
+      &:before {
+        display: none;
+      }
+
+      a {
+        color: $accent-color;
+        font-size: 18px;
+        letter-spacing: 0.1em;
+        display: inline-block;
+        padding: 10px;
+      }
+    }
+  }
+
+  // Footer MailChimp Form
+  .widget_mc4wp_form_widget {
+    font-family: $font-family-sans-serif;
+
+    .widget-title {
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      color: $accent-color;
+      margin-bottom: 0.75em;
+      border-bottom: none;
+      text-align: center;
+      padding-bottom: 0;
+    }
+
+    .mc4wp-form {
+      @include clearfix;
+      font-size: 18px;
+
+      .mc4wp-email {
+        float: left;
+        width: 70%;
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid $accent-color;
+        margin-right: 5%;
+        font-size: 18px;
+        font-family: $font-family-sans-serif;
+        letter-spacing: 0.1em;
+
+        &:focus {
+          border-color: $accent-color;
+          box-shadow: none;
+        }
+      }
+
+      .mc4wp-submit {
+        float: left;
+        width: 25%;
+        background-color: $accent-color !important;
+        border-radius: 0;
+        border: none;
+        color: white !important;
+        font-size: 18px;
+        font-family: $font-family-sans-serif;
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+}

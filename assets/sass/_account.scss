@@ -1,0 +1,89 @@
+.woocommerce-account {
+  p {
+    font-family: $font-family-sans-serif;
+  }
+
+  .entry-header {
+    // @media (min-width: $desktop) {
+    //   padding-left: 30px;
+    //   padding-right: 30px;
+    // }
+
+    .entry-title {
+      font-size: 24px;
+    }
+  }
+
+  .button {
+    @extend %button--primary;
+    @extend %button--block;
+    margin-bottom: 1em;
+  }
+
+  .content-area {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  #customer_login {
+    .lost_password {
+      a {
+        color: $accent-color;
+      }
+    }
+
+    .col2-set {
+      @include clearfix;
+    }
+
+    .col-1,
+    .col-2 {
+      // padding-top: 15px;
+      // padding-bottom: 15px;
+
+      // @media (min-width: $desktop) {
+      //   padding-left: 30px;
+      //   padding-right: 30px;
+      // }
+    }
+
+    .col-1 {
+      @media (min-width: $desktop) {
+        @include span (6 of 12);  
+      }
+      
+      h2 {
+        font-size: 0;
+
+        &:before {
+          content: 'Returning Customer';
+          font-size: 20px;
+          letter-spacing: 0.1em;
+          margin-bottom: 20px;
+          display: block;
+        }
+      }
+    }
+
+    .col-2 {
+      @media (min-width: $desktop) {
+        @include span (6 of 12 last);
+      }
+
+      h2 {
+        font-size: 0;
+
+        &:before {
+          content: 'New Customer';
+          font-size: 20px;
+          letter-spacing: 0.1em;
+          margin-bottom: 20px;
+          display: block;
+        }
+      }
+    }
+  } 
+}
+
+
+// Password Form

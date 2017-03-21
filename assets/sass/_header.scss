@@ -1,0 +1,113 @@
+// Site Header
+.site-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  // text-align: center;
+  margin-bottom: 0;
+
+  @media screen and (min-width: 768px) {
+    @include clearfix;
+    position: relative;
+  }
+
+  .site-branding {
+    // display: inline-block;
+    // float: none;
+
+    @media screen and (min-width: 768px) {
+      float: left;
+      width: 33.33333%;
+      margin: 0;
+    }
+  }
+
+  .site-search {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .storefront-primary-navigation {
+    // float: left;
+    
+    @media screen and (min-width: 768px) {
+      @include type-sans-serif;
+      @include clearfix;
+      width: 66.666666%;
+      clear: none;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+
+      .main-navigation,
+      .site-header-cart {
+        float: left;
+        margin: 0;
+        width: 50%;
+        font-size: 20px;
+      }
+
+      .main-navigation {
+        ul {
+          &.menu,
+          &.nav-menu {
+            & > li {
+              & > a {
+                padding: 0.5em;
+              }
+            }
+          }
+        }
+      }
+
+      .menu {
+        text-align: center;
+      }
+
+      .submenu {
+
+      }
+    }
+  }
+}
+
+
+// Mobile Menu Styles
+// .handheld-navigation {
+//   ul {
+//     text-align: left;
+
+//     ul {
+//       margin: 0;
+//     }
+
+//     .sub-menu {
+//       a {
+//         color: $accent-color;
+//       }
+//     }
+
+//     li {
+//       a {
+//         padding-top: 10px;
+//         padding-bottom: 10px;
+//         font-size: 18px;
+//         letter-spacing: 0.1em;
+
+//         &:before {
+//           display: none;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .main-navigation {
+//   @include clearfix;
+
+//   button.menu-toggle {
+//     border: none;
+//     float: left;
+//     font-size: 0;
+//   }
+// }
