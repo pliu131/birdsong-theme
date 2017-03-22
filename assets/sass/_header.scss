@@ -1,4 +1,10 @@
 // Site Header
+// Hide extra menu on live site
+.site-header-col {
+  > .menu {
+    display: none;
+  }
+}
 .site-header {
   padding-top: 20px;
   padding-bottom: 20px;

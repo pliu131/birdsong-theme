@@ -393,6 +393,10 @@ input[type="radio"] {
   }
 }
 
+.site-header-col > .menu {
+  display: none;
+}
+
 .site-header {
   padding-top: 20px;
   padding-bottom: 20px;

@@ -25,7 +25,7 @@
     do_action( 'storefront_before_header' ); ?>
 
     <header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>">
-      <div class="col-full">
+      <div class="col-full site-header-col">
         <?php get_template_part('templates/mobile-navigation') ?>
 
         <?php get_template_part('templates/desktop-navigation') ?> 
