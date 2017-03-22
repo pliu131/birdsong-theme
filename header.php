@@ -15,6 +15,7 @@
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <script>var $ = jQuery.noConflict();</script>
   <?php wp_head(); ?>
 
 </head>
