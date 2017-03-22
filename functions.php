@@ -31,3 +31,19 @@ function remove_storefront_sidebar() {
 
 // Display 6 products per page. Goes in functions.php
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 6;' ), 20 );
+
+
+// Edit Footer and Headers
+remove_action( 'storefront_header', 'storefront_product_search', 40 );
+
+if ( function_exists('register_sidebar') )
+  register_sidebar(array(
+    'name' => 'Name of Widgetized Area',
+    'before_widget' => '<div class = "widgetizedArea">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
+  )
+);
+
+?>

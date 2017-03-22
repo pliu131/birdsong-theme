@@ -1,12 +1,26 @@
-.site-header-cart {
-  .widget_shopping_cart {
-    // display: block;
-    // left: 0;
+.navigation-cart {
+  display: none;
+  position: absolute;
+  right: 0;
+}
 
+// Desktop Shopping Cart Hover
+.widget_shopping_cart {
+  .site-header & {
+    z-index: 20;
+    max-width: 360px;
     background-color: white;
     border: 2px solid black;
-    font-size: 16px;
-    padding: 30px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    padding: 25px;
+    position: relative;
+    top: 25px;
+
+    .product_list_widget {
+      max-height: 240px;
+      overflow: scroll;
+    }
 
     &:before {
       content: 'Your Bag';
@@ -36,13 +50,12 @@
 
       .size-shop_thumbnail {
         float: left;
-        margin-right: 1em;
+        margin-right: 2em;
         margin-left: 0;
         width: 100px;
         max-width: 100px;
       }
 
-      .size-shop_thumbnail {}
       .variation {
         margin-top: 0;
         margin-bottom: 0;
@@ -59,23 +72,26 @@
           }
         }
       }
-      .quantity {}
     }
 
-    .total {
-      @include clearfix;
-      padding: 1em 0 !important;
+    .cart-numbers {
       border-top: 2px solid black;
-      border-bottom: none;
-      font-size: 1em;
-      font-family: $font-family-sans-serif;
+      padding-top: 1em;
 
-      strong {
-        float: left;
-      }
+      p {
+        @include clearfix;
+        border-bottom: none;
+        padding: 0 !important;
+        font-size: 1em;
+        font-family: $font-family-sans-serif;
 
-      span {
-        float: right;
+        strong {
+          float: left;
+        }
+
+        span {
+          float: right;
+        }
       }
     }
 
@@ -86,7 +102,7 @@
         &:first-child {
           border: 2px solid black;
         }
+      }
     }
   }
-}
 }

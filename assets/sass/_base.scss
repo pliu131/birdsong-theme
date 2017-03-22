@@ -28,9 +28,30 @@ table {
 h1, h2, h3, h4, h5, h6 {
   color: black;
   letter-spacing: 0.1em;
+  line-height: 1.25;
 }
 
 a {
   font-family: $font-family-sans-serif;
   letter-spacing: 0.1em;
+  display: inline-block;
+}
+
+// Figure out where this needs to be shown
+.page {
+  .entry-title {
+    display: none;
+  }
+}
+
+// .page-template-blog-masonry {
+//   .entry-title {
+//     display: block !important;
+//   }
+// }
+
+.woocommerce.archive {
+  .page-title {
+    display: none;
+  }
 }

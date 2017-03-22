@@ -10,7 +10,8 @@ input[type="text"],
 input[type="number"],
 input[type="email"],
 input[type="password"],
-textarea {
+textarea,
+select {
   background-color: transparent;
   border: 1px solid black;
   box-shadow: none;

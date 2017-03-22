@@ -1,0 +1,11 @@
+## Directories to ignore
+assets/sass/**
+node_modules/**
+.sass-cache/**
+
+## Files to ignore
+Gruntfile.js
+package.json
+.jscsrc
+.jshintignore
+.DS_Store

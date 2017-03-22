@@ -1,3 +1,11 @@
+.single-product {
+  div.product {
+    form.cart {
+      margin-bottom: 0;
+    }
+  }
+}
+
 // Sourcing Details
 .sourcing-details {
   @extend %list-reset;
@@ -10,6 +18,7 @@
     width: 32%;
     padding: 10px;
     vertical-align: top;
+    white-space: nowrap;
 
     &__text {
       font-size: 14px;
@@ -32,6 +41,7 @@
 
     .sourcing-detail {
       width: 20%;
+      white-space: normal;
     }
   }
 }
@@ -39,6 +49,8 @@
 // WooCommerce Tabs
 .woocommerce-tabs {
   font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 
   .after-single-product & {
     display: none;
@@ -103,6 +115,118 @@
   }
 }
 
+// Product Images Slider
+.product-images-wrapper {
+  @media (min-width: $desktop) {
+    @include span (5 of 12 !important);
+  }
+
+  img {
+    width: 100%;
+  }
+
+  button {
+    box-shadow: none;
+    color: white;
+  }
+
+  .product-images {
+    margin-bottom: 30px;
+
+    @media (min-width: $desktop) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .product-thumbnails {
+    display: none;
+
+    @media (min-width: $desktop) {
+      display: block;
+      margin-left: -5px;
+      margin-right: -5px;
+
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+
+  .product-thumbnail {
+    @media (min-width: $desktop) {
+      cursor: pointer;
+      margin: 0;
+      width: 25%;
+      padding-left: 5px;
+      padding-right: 5px;
+
+      &:focus,
+      &:active {
+        outline: none,
+      }
+
+      &.slick-current {
+        img {
+          border: 2px solid black;
+        }
+      }
+    }
+  }
+  
+  // Slick Elements
+  .slick-prev,
+  .slick-next {
+    height: 60px;
+    width: 60px;
+    &:before {
+      font-family: 'FontAwesome';
+      font-size: 48px;
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+    z-index: 10;
+
+    &:before {
+      content: "\f104";
+    }
+  }
+
+  .slick-next {
+    right: 0;
+    z-index: 10;
+
+    &:before {
+      content: "\f105";
+    }
+  }
+
+  .slick-dots {
+    bottom: 0;
+    z-index: 10;
+
+    li {
+      height: 30px;
+      width: 30px;
+
+      button {
+        height: 30px;
+        width: 30px;
+
+        &:before {
+          height: 30px;
+          width: 30px;
+          color: #fff;
+          font-size: 24px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}
+
 
 
 .storefront-full-width-content.single-product {
@@ -110,43 +234,6 @@
     @include clearfix;
     overflow: visible;
     text-align: center;
-
-
-    .images {
-      @media (min-width: $desktop) {
-        @include span (6 of 12 !important);
-
-        img {
-          width: 100%;
-        }
-      }
-
-      .woocommerce-main-image {
-        margin-bottom: 10px;
-      }
-
-      .thumbnails {
-        display: none;
-
-        @media (min-width: $desktop) {
-          display: block;
-          margin-left: -5px;
-          margin-right: -5px;
-
-          a.zoom {
-            margin: 0;
-            width: 25%;
-            padding-left: 5px;
-            padding-right: 5px;
-          }
-
-          img {
-            width: 100%;
-            display: block;
-          }
-        }
-      }
-    }
 
     .summary {
       .button {
@@ -163,11 +250,11 @@
       }
 
       @media (min-width: $desktop) {
-        @include span (6 of 12 last);
+        @include span (7 of 12 last);
         margin-bottom: 0;
 
         &__content {
-          padding: 30px;
+          padding: 15px 30px;
         }
 
         .related {

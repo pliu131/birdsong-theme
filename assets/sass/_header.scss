@@ -1,113 +1,326 @@
 // Site Header
 .site-header {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  // text-align: center;
-  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 0 !important;
 
-  @media screen and (min-width: 768px) {
-    @include clearfix;
-    position: relative;
+  .site-toggle,
+  .site-branding,
+  .site-controls,
+  .site-navigation {
+    display: table-cell;
+    vertical-align: middle;
+    width: auto;
+    float: none;
   }
 
   .site-branding {
-    // display: inline-block;
-    // float: none;
+    .site-logo {
+      display: inline-block;
+      width: 100%;
 
-    @media screen and (min-width: 768px) {
-      float: left;
-      width: 33.33333%;
-      margin: 0;
+      a {
+        float: none;
+        display: inline-block;
+      }
     }
   }
 
-  .site-search {
-    @media screen and (min-width: 768px) {
+  // Mobile Navigation Styles
+  .mobile-navigation-wrapper {
+    @media (min-width: $desktop) {
       display: none;
     }
-  }
 
-  .storefront-primary-navigation {
-    // float: left;
-    
-    @media screen and (min-width: 768px) {
-      @include type-sans-serif;
-      @include clearfix;
-      width: 66.666666%;
-      clear: none;
-      background-color: white;
-      margin: 0;
-      padding: 0;
+    .site-toggle,
+    .site-branding,
+    .site-controls,
+    .site-navigation {
+      vertical-align: middle;
+    }
 
-      .main-navigation,
-      .site-header-cart {
-        float: left;
-        margin: 0;
-        width: 50%;
-        font-size: 20px;
+    .mobile-navigation-header {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      white-space: nowrap;
+    }
+
+    .site-toggle,
+    .site-controls {
+      width: 20%;
+    }
+
+    .site-branding {
+      text-align: center;
+      
+      a {
+        display: block;
       }
 
-      .main-navigation {
-        ul {
-          &.menu,
-          &.nav-menu {
-            & > li {
-              & > a {
-                padding: 0.5em;
-              }
-            }
-          }
+      .site-logo {
+        max-width: 160px;
+      }
+    }
+
+    .menu-toggle {
+      border: none;
+      text-align: center;
+      float: none;
+      display: inline-block;
+      padding: 0;
+      height: 40px;
+      width: 40px;
+
+      &:focus {
+        outline: none;
+      }
+
+      span:before, 
+      &:after, 
+      &:before {
+        width: 24px;
+        left: 0;
+      }
+
+      &:after {
+        transform: translateY(8px);
+      }
+
+      &:before {
+        transform: translateY(-8px);
+      }
+
+      &.menu-open {
+        span:before {
+          opacity: 0;
+        }
+
+        &:before {
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  // Desktop Navigation Styles
+  .desktop-navigation-wrapper {
+    display: none;
+
+    @media (min-width: $desktop) {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+
+      .site-toggle,
+      .site-branding,
+      .site-controls,
+      .site-navigation {
+        vertical-align: bottom;
+        width: auto;
+        float: none;
+      }
+
+      .site-branding,
+      .site-controls {
+        width: 15%;
+      }
+
+      .site-branding {
+        margin: 0;
+
+        img {
+          max-width: 80px;
         }
       }
 
-      .menu {
+      .site-navigation {
+        clear: none;
+        margin: 0;
+        float: none;
+        width: auto;
+        font-size: 22px;
         text-align: center;
-      }
-
-      .submenu {
-
+        line-height: 1;
       }
     }
   }
 }
 
+// Site-Controls
+.site-controls {
+  display: inline-block;
+  text-align: right;
+
+  .site-control {
+    color: black;
+    height: 22px;
+    width: 40px;
+    line-height: 1;
+    font-size: 22px;
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+// Search Bar
+.main-search {
+  display: none;
+  padding: 15px;
+
+  @media (min-width: $desktop) {
+    padding: 30px;
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: none;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+  }
+
+  .woocommerce-product-search {
+    margin-bottom: 0;
+
+    &:before {
+      display: none;
+    }
+
+    .search-field {
+      padding-left: 0;
+      font-family: $font-family-sans-serif;
+      font-size: 18px;
+      color: $accent-color;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid black;
+      box-shadow: none;
+    }
+  }
+}
+
+
+// General Navigation Styles
+.site-navigation {
+  .menu {
+    .menu-item {
+      a {
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        font-size: inherit;
+        letter-spacing: 0.1em;
+        display: inline-block;
+        line-height: 1;
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
 
 // Mobile Menu Styles
-// .handheld-navigation {
-//   ul {
-//     text-align: left;
+.mobile-links {
+  display: none;
 
-//     ul {
-//       margin: 0;
-//     }
+  .menu {
+    @extend %list-reset;
+    text-align: left;
 
-//     .sub-menu {
-//       a {
-//         color: $accent-color;
-//       }
-//     }
+    .menu-item {
+      position: relative;
+      font-size: 18px;
+    }
 
-//     li {
-//       a {
-//         padding-top: 10px;
-//         padding-bottom: 10px;
-//         font-size: 18px;
-//         letter-spacing: 0.1em;
+    .sub-toggle {
+      position: absolute;
+      top: 0px;
+      right: 0;
+      cursor: pointer;
+      text-align: center;
+      outline: 0;
+      background: transparent;
+      font-size: 24px;
+      color: black;
+    }
 
-//         &:before {
-//           display: none;
-//         }
-//       }
-//     }
-//   }
-// }
+    .sub-menu {
+      @extend %list-reset;
+      margin: 0;
+      display: none;
 
-// .main-navigation {
-//   @include clearfix;
+      a {
+        color: $accent-color;
+      }
+    }
+  }
+}
 
-//   button.menu-toggle {
-//     border: none;
-//     float: left;
-//     font-size: 0;
-//   }
-// }
+.desktop-links {
+  ul {
+    @extend %list-reset;
+  }
+
+  .menu {
+    > .menu-item {
+      display: inline-block;
+      font-size: 22px;
+      
+      > a {
+        padding: 0 1em;
+      }
+
+      &:hover {
+        > .sub-menu {
+          display: block;
+        }
+      }
+
+      > .sub-menu {
+        @extend %list-reset;
+        display: none;
+        position: absolute;
+        background-color: white;
+        padding: 30px;
+        width: 100%;
+        left: 0;
+        text-align: center;
+
+        > .menu-item {
+          display: inline-block;
+          text-align: left;
+          padding-left: 45px;
+          padding-right: 45px;
+          vertical-align: top;
+
+          > a {
+            font-size: 16px;
+            color: $accent-color;
+          }
+
+          .menu-item {
+            display: block;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,9 @@
+// Hide elements on mobile
+.storefront-handheld-footer-bar,
+.site-info {
+  display: none;
+}
+
 .footer-bottom {
   @include container;
   padding-top: 30px;
@@ -32,12 +38,56 @@
   }
 }
 
+// Social Media Icons
+.social-items {
+  @extend %list-reset;
+  text-align: center;
+  
+  .social-item {
+    display: inline-block;
 
-.site-info {
-  display: none;
+    &__link {
+      display: block;
+      padding: 15px;
+      font-size: 24px;
+
+      @media (min-width: $desktop) {
+        padding: 0 15px;
+      }
+    }
+  }
 }
 
-.footer-widgets {
+.site-footer {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// Footer Widget
+.footer-widgets.col-1,
+.footer-widgets.col-2 {
+  padding-top: 30px;
+  border-bottom: none;
+
+  @media (min-width: $desktop) {
+    border-top: 1px solid $accent-color;
+
+    .footer-widget-1 {
+      @include span(8 of 12);
+    }
+
+    .footer-widget-2 {
+      @include span(4 of 12 last);
+    }
+  }
+
+  .widget {
+    margin-bottom: 30px;
+
+    @media (min-width: $desktop) {
+      margin-bottom: 15px;
+    }
+  }
   // Footer Menu
   .menu {
     list-style: none;
@@ -48,7 +98,7 @@
     .menu-item {
       display: inline-block;
       margin-bottom: 0;
-    
+
       &:before {
         display: none;
       }
@@ -66,6 +116,20 @@
   // Footer MailChimp Form
   .widget_mc4wp_form_widget {
     font-family: $font-family-sans-serif;
+
+    &:first-child {
+      @media (min-width: $desktop) {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      display: none;
+
+      @media (min-width: $desktop) {
+        display: block;
+      }
+    }
 
     .widget-title {
       font-size: 18px;
