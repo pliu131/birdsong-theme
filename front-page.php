@@ -43,7 +43,7 @@ get_header(); ?>
         </div>
         <div class="section__part section__part--text">
           <h3>Find out more about our makers</h3>
-          <a class="button button--primary" href="<?php site_url( "/about" ); ?>">Discover</a>
+          <a class="button button--primary" href="<?php site_url(); ?>/about">Discover</a>
         </div>
         <div class="section__part">
           <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/maker-2.jpg" alt="">
@@ -55,10 +55,16 @@ get_header(); ?>
       <div class="section__content">
         <h4>As seen in</h4>
         <ul class="press-items">
-          <li class="press-item"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-1.png" alt=""></li>
-          <li class="press-item"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-2.png" alt=""></li>
-          <li class="press-item"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-3.png" alt=""></li>
-          <li class="press-item"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-4.png" alt=""></li>
+          <li class="press-item"><a href="http://www.teenvogue.com/gallery/feminist-clothing-brands-2016#2"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-1.png" alt=""></a></li>
+          <li class="press-item">
+            <a href="http://www.theguardian.com/fashion/2015/nov/04/do-your-clothes-pass-the-feminist-test"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-2.png" alt=""></a>
+            </li>
+          <li class="press-item">
+            <a href="https://i-d.vice.com/en_gb/article/support-fashion-against-funding-cuts-on-international-womens-day"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-3.png" alt=""></a>
+          </li>
+          <li class="press-item">
+            <a href="http://www.dazeddigital.com/fashion/article/28443/1/the-feminists-leading-an-ethical-fashion-revolution"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-4.png" alt=""></a>
+          </li>
         </ul>
       </div>
     </div>

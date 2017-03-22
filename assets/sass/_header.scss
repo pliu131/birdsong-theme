@@ -69,11 +69,11 @@
       }
     }
 
-    .menu-toggle {
+    .menu-toggle[style] {
       border: none;
       text-align: center;
       float: none;
-      display: inline-block;
+      display: inline-block !important;
       padding: 0;
       height: 40px;
       width: 40px;
