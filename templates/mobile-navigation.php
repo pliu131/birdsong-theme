@@ -2,7 +2,7 @@
   <nav id="site-navigation" class="site-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>">
     <div class="mobile-navigation-header">
       <div class="site-toggle">
-        <button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false">
+        <button class="site-toggle" aria-controls="site-navigation" aria-expanded="false">
           <span>
           </span>
         </button>

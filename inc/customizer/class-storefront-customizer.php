@@ -509,13 +509,13 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			ul.menu li a,
 			.site-branding h1 a,
 			.site-footer .storefront-handheld-footer-bar a:not(.button),
-			button.menu-toggle,
-			button.menu-toggle:hover {
+			button.site-toggle,
+			button.site-toggle:hover {
 				color: ' . $storefront_theme_mods['header_link_color'] . ';
 			}
 
-			button.menu-toggle,
-			button.menu-toggle:hover {
+			button.site-toggle,
+			button.site-toggle:hover {
 				border-color: ' . $storefront_theme_mods['header_link_color'] . ';
 			}
 
@@ -548,8 +548,8 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			.storefront-handheld-footer-bar,
 			.storefront-handheld-footer-bar ul li > a,
 			.storefront-handheld-footer-bar ul li.search .site-search,
-			button.menu-toggle,
-			button.menu-toggle:hover {
+			button.site-toggle,
+			button.site-toggle:hover {
 				background-color: ' . $storefront_theme_mods['header_background_color'] . ';
 			}
 
@@ -560,9 +560,9 @@ if ( ! class_exists( 'Storefront_Customizer' ) ) :
 			}
 
 			.storefront-handheld-footer-bar ul li.cart .count,
-			button.menu-toggle:after,
-			button.menu-toggle:before,
-			button.menu-toggle span:before {
+			button.site-toggle:after,
+			button.site-toggle:before,
+			button.site-toggle span:before {
 				background-color: ' . $storefront_theme_mods['header_link_color'] . ';
 			}
 
