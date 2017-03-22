@@ -37,7 +37,7 @@
 
 
 <script>
-   jQuery(function($) {
+   jQuery(document.ready(function($) {
     $('.product-images').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
