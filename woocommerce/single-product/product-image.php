@@ -36,49 +36,73 @@ global $post, $product;
 	?>
 
 	<?php if ( $attachment_ids ) : ?>
-
-	<!-- Big Images -->
-	<div class="product-images">
-	<?php
-		foreach ( $attachment_ids as $attachment_id ) :
-			$props       = wc_get_product_attachment_props( $attachment_id, $post );
+		<!-- Big Images -->
+		<div class="product-images">
+			<?php
+			foreach ( $attachment_ids as $attachment_id ) :
+				$props       = wc_get_product_attachment_props( $attachment_id, $post );
 
 			if ( ! $props['url'] ) :
 				continue;
 			endif;
-		?>
+			?>
 
+			<div class="product-image">
+				<?php 
+				echo wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), 0, $props );
+				?>
+			</div>
+
+		<?php endforeach; ?>
+
+
+	<?php elseif (has_post_thumbnail()):
+		$attachment_count = count( $product->get_gallery_attachment_ids() );
+		$gallery          = $attachment_count > 0 ? '[product-gallery]' : '';
+		$props            = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
+		$image            = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
+			'title'	 => $props['title'],
+			'alt'    => $props['alt'],
+			) );
+		echo apply_filters(
+			'woocommerce_single_product_image_html',
+			sprintf(
+				'<div class="product-image"><img src="%s"></div>',
+				esc_url( $props['url'] ),
+				),
+			$post->ID
+		);
+	?>
 		<div class="product-image">
 			<?php 
-				echo wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), 0, $props );
+			echo wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), 0, $props );
 			?>
 		</div>
- 
-		<?php endforeach; ?>
-	</div><!-- .main-images --> 
+	</div><!-- .product-images -->
+<?php endif; ?>
 
 
+<?php if ( $attachment_ids ) : ?>
 	<!-- Thumbnail Images Navigation -->
 	<div class="product-thumbnails">
-	<?php
+		<?php
 		foreach ( $attachment_ids as $attachment_id ) :
 			$props       = wc_get_product_attachment_props( $attachment_id, $post );
 
-			if ( ! $props['url'] ) :
-				continue;
-			endif;
+		if ( ! $props['url'] ) :
+			continue;
+		endif;
 		?>
 
 		<div class="product-thumbnail">
-		<?php 
+			<?php 
 			echo wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_small_thumbnail_size', 'shop_thumbnail' ), 0, $props );
-		?>
+			?>
 		</div>
 
-		<?php endforeach; ?>
-	</div><!-- .thumbnails --> 
-
-	<?php endif; ?>
+	<?php endforeach; ?>
+</div><!-- .thumbnails --> 
+<?php endif; ?>
 
 
 </div><!-- .images-wrapper --> 
@@ -108,4 +132,4 @@ global $post, $product;
 	// } else {
 	// 	echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
 	// }
-	?>
+?>
