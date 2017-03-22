@@ -35,10 +35,9 @@ global $post, $product;
 	$attachment_ids = $product->get_gallery_attachment_ids();
 	?>
 
+	<div class="product-images">
 	<?php if ( $attachment_ids ) : ?>
-		<!-- Big Images -->
-		<div class="product-images">
-			<?php
+		<?php
 			foreach ( $attachment_ids as $attachment_id ) :
 				$props       = wc_get_product_attachment_props( $attachment_id, $post );
 
@@ -56,30 +55,17 @@ global $post, $product;
 		<?php endforeach; ?>
 
 
-	<?php elseif (has_post_thumbnail()):
-		$attachment_count = count( $product->get_gallery_attachment_ids() );
-		$gallery          = $attachment_count > 0 ? '[product-gallery]' : '';
-		$props            = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
+	<?php elseif (has_post_thumbnail()) :
 		$image            = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
 			'title'	 => $props['title'],
 			'alt'    => $props['alt'],
 			) );
-		echo apply_filters(
-			'woocommerce_single_product_image_html',
-			sprintf(
-				'<div class="product-image"><img src="%s"></div>',
-				esc_url( $props['url'] ),
-				),
-			$post->ID
-		);
 	?>
 		<div class="product-image">
-			<?php 
-			echo wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), 0, $props );
-			?>
+			<?php echo $image ?>
 		</div>
-	</div><!-- .product-images -->
 <?php endif; ?>
+</div><!-- .product-images -->
 
 
 <?php if ( $attachment_ids ) : ?>
