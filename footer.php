@@ -38,6 +38,21 @@
 
 <script>
    jQuery(function($) {
+    $('.product-images').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: true,
+      arrows: true,
+      asNavFor: '.product-thumbnails'
+    });
+
+    $('.product-thumbnails').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      asNavFor: '.product-images',
+      focusOnSelect: true
+    });
+    
     $('.site-control--cart')
     .mouseover(function() {
       $(".navigation-cart").show();

@@ -23,26 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $post, $product;
 ?>
 
-<script>
-	$(document).ready(function() {
-		$('.product-images').slick({
-		  slidesToShow: 1,
-		  slidesToScroll: 1,
-		  dots: true,
-		  arrows: true,
-		  asNavFor: '.product-thumbnails'
-		});
-
-		$('.product-thumbnails').slick({
-		  slidesToShow: 4,
-		  slidesToScroll: 1,
-		  asNavFor: '.product-images',
-		  focusOnSelect: true
-		});
-	});
-</script>
-
-
 <div class="product-images-wrapper">
 	<?php
 
