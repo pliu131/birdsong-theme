@@ -37,7 +37,7 @@
 
 
 <script>
-  $(document).ready(function() {
+   jQuery(function($) {
     $('.site-control--cart')
     .mouseover(function() {
       $(".navigation-cart").show();
