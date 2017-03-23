@@ -6,7 +6,7 @@ Author:         Stuart Duff
 Author URI:     http://stuartduff.com
 Template:     	storefront
 Description:  	This is a blank child theme for WooThemes StoreFront theme
-Version:      	1.0.1
+Version:      	1.1.0
 License:      	GNU General Public License v2 or later
 License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  	storefront
@@ -1438,7 +1438,7 @@ table.shop_table_responsive tr .product-name:before {
 }
 
 .navigation-cart {
-  display: block;
+  display: none;
   position: absolute;
   right: 0;
 }
