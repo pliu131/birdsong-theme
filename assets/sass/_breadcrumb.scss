@@ -6,6 +6,7 @@
   text-align: center;
   padding: 15px;
   margin: 0;
+  letter-spacing: 0.1em;
 
   a {
     font-family: 'romana', sans-serif !important;
@@ -22,4 +23,8 @@
     margin-bottom: 0;
     padding: 30px;
   }
+}
+
+.archive .col-full > .woocommerce-breadcrumb {
+  display: none;
 }

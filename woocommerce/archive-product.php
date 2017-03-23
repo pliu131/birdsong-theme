@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
-	<?php
+<?php
 		/**
 		 * woocommerce_before_main_content hook.
 		 *
@@ -30,12 +30,11 @@ get_header( 'shop' ); ?>
 		 * @hooked woocommerce_breadcrumb - 20
 		 */
 		do_action( 'woocommerce_before_main_content' );
-	?>
+		?>
 
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
 			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
-
 		<?php endif; ?>
 
 		<?php
@@ -46,11 +45,17 @@ get_header( 'shop' ); ?>
 			 * @hooked woocommerce_product_archive_description - 10
 			 */
 			do_action( 'woocommerce_archive_description' );
-		?>
+			?>
 
-		<?php if ( have_posts() ) : ?>
+			<div class="product-filter-wrapper">
+				<div class="product-filter-header">
+					<a class="product-filter__open" href="#">Sort by size <i class="fa fa-angle-down"></i></a>
 
-			<?php
+					<div class="products-breadcrumb">
+						<?php woocommerce_breadcrumb(); ?>
+					</div>
+
+					<?php
 				/**
 				 * woocommerce_before_shop_loop hook.
 				 *
@@ -58,17 +63,33 @@ get_header( 'shop' ); ?>
 				 * @hooked woocommerce_catalog_ordering - 30
 				 */
 				do_action( 'woocommerce_before_shop_loop' );
-			?>
+				?>
+			</div><!-- .product-filter-header --> 
+
+			<div class="product-filter">
+				<a href="#" class="product-filter__close">
+					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/close.svg" alt="">
+				</a>
+				<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('product-filters') ) : 
+
+				endif; ?>
+				<a href="#" class="product-filter__clear">
+					Clear
+				</a>
+			</div><!-- .product-filter --> 
+		</div><!-- .product-filter-wrapper --> 
+
+		<?php if ( have_posts() ) : ?>
 
 			<?php woocommerce_product_loop_start(); ?>
 
-				<?php woocommerce_product_subcategories(); ?>
+			<?php woocommerce_product_subcategories(); ?>
 
-				<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php wc_get_template_part( 'content', 'product' ); ?>
+				<?php wc_get_template_part( 'content', 'product' ); ?>
 
-				<?php endwhile; // end of the loop. ?>
+			<?php endwhile; // end of the loop. ?>
 
 			<?php woocommerce_product_loop_end(); ?>
 
@@ -79,30 +100,30 @@ get_header( 'shop' ); ?>
 				 * @hooked woocommerce_pagination - 10
 				 */
 				do_action( 'woocommerce_after_shop_loop' );
-			?>
+				?>
 
-		<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+			<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
 
-			<?php wc_get_template( 'loop/no-products-found.php' ); ?>
+				<?php wc_get_template( 'loop/no-products-found.php' ); ?>
 
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
+			<?php
 		/**
 		 * woocommerce_after_main_content hook.
 		 *
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
 		do_action( 'woocommerce_after_main_content' );
-	?>
+		?>
 
-	<?php
+		<?php
 		/**
 		 * woocommerce_sidebar hook.
 		 *
 		 * @hooked woocommerce_get_sidebar - 10
 		 */
 		do_action( 'woocommerce_sidebar' );
-	?>
+		?>
 
-<?php get_footer( 'shop' ); ?>
+		<?php get_footer( 'shop' ); ?>

@@ -2,6 +2,8 @@
   div.product {
     form.cart {
       margin-bottom: 0;
+      text-align: center;
+      max-width: 360px;
     }
   }
 
@@ -9,6 +11,21 @@
     .woocommerce-breadcrumb {
       display: none;
     }
+  }
+}
+
+.product-images-wrapper {
+  margin-left: $negative-gutter-width;
+  margin-right: $negative-gutter-width;
+
+  @media (min-width: $handheld) {
+    margin-left: $negative-gutter-width-large;
+    margin-right: $negative-gutter-width-large;
+  }
+
+  @media (min-width: $desktop) {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -55,7 +72,7 @@
 }
 
 // WooCommerce Tabs
-.woocommerce-tabs {
+div.woocommerce-tabs {
   font-size: 14px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -64,6 +81,7 @@
     display: none;
   }
 
+  .single-product &,
   .storefront-full-width-content & {
 
     ul.tabs {
@@ -237,7 +255,8 @@
 
 
 
-.storefront-full-width-content.single-product {
+.storefront-full-width-content.single-product,
+.single-product {
   div.product {
     @include clearfix;
     overflow: visible;
@@ -260,9 +279,9 @@
       @media (min-width: $desktop) {
         @include span (7 of 12 last);
         margin-bottom: 0;
+        padding: 30px;
 
         &__content {
-          padding: 30px;
           margin: 0 auto;
           max-width: 540px;
         }
@@ -320,28 +339,28 @@
         .variations_button {
           padding-top: 0;
         }
+      }
+    }
 
-        .quantity {
-          float: none;
-          display: inline-block;
-          margin-bottom: 15px;
+    .quantity {
+      float: none !important;
+      display: inline-block;
+      margin-bottom: 15px;
 
-          &:before {
-            content: "Quantity";
-            display: block;
-            margin-bottom: 5px;
-            font-family: $font-family-sans-serif;
-          }
+      &:before {
+        content: "Quantity";
+        display: block;
+        margin-bottom: 5px;
+        font-family: $font-family-sans-serif;
+      }
 
-          input {
-            display: inline-block;
-            background-color: transparent;
-            border: 1px solid black;
-            color: black;
-            font-family: $font-family-sans-serif;  
-            border-radius: 0;
-          }
-        }
+      input {
+        display: inline-block;
+        background-color: transparent;
+        border: 1px solid black;
+        color: black;
+        font-family: $font-family-sans-serif;  
+        border-radius: 0;
       }
     }
 

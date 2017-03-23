@@ -37,7 +37,25 @@
 
 
 <script>
-   jQuery(function($) {
+  // $.noConflict();
+  jQuery(function($) {
+    // Product Filter JS
+    $('.berocket_aapf_widget_update_button').click(function() {
+      $(this).parents('.product-filter').slideUp('fast', 'linear');
+    });
+
+    $('.product-filter__open').click(function() {
+      $('.product-filter').slideToggle('fast', 'linear');
+    });
+
+    $('.product-filter__close').click(function() {
+      $('.product-filter').slideToggle('fast', 'linear');
+    });
+
+    $('.product-filter__clear').click(function() {
+      $('.product-filter').find('input[type=checkbox]:checked').removeAttr('checked');
+    });
+
     $('.main-toggle').show();
     
     $('.product-images').slick({

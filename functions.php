@@ -23,6 +23,14 @@ function sf_child_theme_dequeue_style() {
  * Note: DO NOT! alter or remove the code above this text and only add your custom PHP functions below this text.
  */
 
+// Remove Default Sorting
+add_action('init','delay_remove');
+ 
+function delay_remove() {
+  remove_action( 'woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 10 );
+  remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 10 );
+}
+
 // Remove Sidebar
 add_action( 'get_header', 'remove_storefront_sidebar' );
 function remove_storefront_sidebar() {
@@ -31,6 +39,19 @@ function remove_storefront_sidebar() {
 
 // Display 6 products per page. Goes in functions.php
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 6;' ), 20 );
+
+// Add widget area for product filters
+function product_filters_widgets_init() {
+    register_sidebar( array(
+        'name' => __( 'Product Filters', 'product_filters' ),
+        'id' => 'product-filters',
+        'before_widget' => '<div class="product-filter__section">',
+        'after_widget' => '</div>',
+        'before_title' => '<h1>',
+        'after_title' => '</h1>',
+    ) );
+}
+add_action( 'widgets_init', 'product_filters_widgets_init' );
 
 
 /**

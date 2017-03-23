@@ -36,8 +36,18 @@ global $post, $product;
 	?>
 
 	<div class="product-images">
-	<?php if ( $attachment_ids ) : ?>
-		<?php
+		<?php if (has_post_thumbnail()) :
+		$image            = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
+			'title'	 => $props['title'],
+			'alt'    => $props['alt'],
+			) );
+			?>
+			<div class="product-image">
+				<?php echo $image ?>
+			</div>
+		<?php endif; ?>
+		<?php if ( $attachment_ids ) : ?>
+			<?php
 			foreach ( $attachment_ids as $attachment_id ) :
 				$props       = wc_get_product_attachment_props( $attachment_id, $post );
 
@@ -53,24 +63,26 @@ global $post, $product;
 			</div>
 
 		<?php endforeach; ?>
-
-
-	<?php elseif (has_post_thumbnail()) :
-		$image            = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
-			'title'	 => $props['title'],
-			'alt'    => $props['alt'],
-			) );
-	?>
-		<div class="product-image">
-			<?php echo $image ?>
-		</div>
-<?php endif; ?>
+	<?php endif; ?>
 </div><!-- .product-images -->
 
 
-<?php if ( $attachment_ids ) : ?>
-	<!-- Thumbnail Images Navigation -->
-	<div class="product-thumbnails">
+
+<!-- Thumbnail Images Navigation -->
+<div class="product-thumbnails">
+
+	<?php if (has_post_thumbnail()) :
+	$image            = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
+		'title'	 => $props['title'],
+		'alt'    => $props['alt'],
+		) );
+		?>
+		<div class="product-thumbnail">
+			<?php echo $image ?>
+		</div>
+	<?php endif; ?>
+
+	<?php if ( $attachment_ids ) : ?>
 		<?php
 		foreach ( $attachment_ids as $attachment_id ) :
 			$props       = wc_get_product_attachment_props( $attachment_id, $post );
@@ -85,7 +97,6 @@ global $post, $product;
 			echo wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_small_thumbnail_size', 'shop_thumbnail' ), 0, $props );
 			?>
 		</div>
-
 	<?php endforeach; ?>
 </div><!-- .thumbnails --> 
 <?php endif; ?>

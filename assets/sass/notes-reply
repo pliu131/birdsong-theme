@@ -1,0 +1,13 @@
+Bag Development Checklist
+1. There should be confirmation that an item is added to the cart.
+4. The other box is for gift codes. Do they want the functionality for gift codes?
+5. If we remove the 'Update Basket' button, then there's no way to update the basket if we change the quantity.
+
+Checkout Checklist
+
+PDP Page Checklist
+2. Product Image is already big...
+3. This takes an absurdly long amount of time and it runs the risk of breaking functionality. Also, you can't edit a 'select' menu like that.
+
+Category Landing Page
+- Adding size filters is a lot trickier than expected. Need to use an AJAX plugin.

@@ -1,0 +1,163 @@
+.product-filter-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.product-filter-header {
+  display: table;
+  width: 100%;
+  margin-bottom: 15px;
+
+  @media (min-width: $desktop) {
+    margin-bottom: 0;
+  }
+
+  .product-filter__open {
+    display: table-cell;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+    text-align: left;
+
+    @media (min-width: $desktop) {
+      width: 25%;
+    }
+  }
+
+  .products-breadcrumb {
+    display: none;
+
+    @media (min-width: $desktop) {
+      display: table-cell;
+      vertical-align: middle;
+      width: 50%;
+      padding: 0;
+    }
+  }
+
+  .storefront-sorting {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+    margin-bottom: 0;
+
+    @media (min-width: $desktop) {
+      width: 25%;
+    }
+
+    p {
+      padding: 0;
+      font-size: 14px;
+      font-family: $font-family-book;
+      text-align: right;
+      letter-spacing: 0.1em;
+      float: none;
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+.product-filter {
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  background-color: #fff;
+  padding: 15px 0;
+  z-index: 11000;
+  display: none;
+
+  @media (min-width: $handheld) {
+    padding: 15px;
+  }
+
+  &__open {
+    color: black;
+
+    &:active + .product__filter {
+      display: block;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    display: inline-block;
+    padding: 15px;
+    z-index: 20;
+    top: 0;
+    right: 0;
+  }
+
+  &__clear {
+    float: left;
+    width: 33.333333%;
+    color: black;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  // Product Filter Apply Button
+  &__section {
+    &:last-of-type {
+      float: left;
+      width: 66.666666%;
+    }
+  }
+
+  .berocket_aapf_widget_update_button {
+    @extend %button;
+    @extend %button--primary;
+    display: block;
+    width: 100%;
+  }
+
+  .berocket_aapf_widget-wrapper {
+    ul.berocket_aapf_widget {
+      margin: 0;
+      column-count: 2;
+      margin-bottom: 30px;
+
+      li {
+        display: block;
+        cursor: pointer;
+
+        span {
+          cursor: pointer;
+
+          input[type='checkbox'] {
+            & + label {
+              cursor: pointer;
+              display: block;
+              width: 100%;
+              position: relative;
+              padding: 15px 0px 15px 15px;
+              margin-bottom: 0;
+
+              &:before {
+                background: none;
+                background-color: white;
+                border-radius: 50% 50%;
+                height: 6px;
+                width: 6px;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+            }
+
+            &:checked + label {
+              &:before {
+                background-color: black;
+                border-radius: 50% 50%;
+                height: 6px;
+                width: 6px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

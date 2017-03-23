@@ -15,8 +15,8 @@
   border-color: $accent-color;
 
   &:hover, &:active, &:focus {
-    background-color: $accent-color;
-    color: white;
+    background-color: white;
+    color: $accent-color;
     border-color: $accent-color;
   }
 }
