@@ -30,6 +30,10 @@
     line-height: 40px;
     vertical-align: middle;
   }
+
+  @media (min-width: $desktop) {
+    width: 33.33333%;
+  }
 }
 
 .lmp_load_more_button {
@@ -86,7 +90,7 @@ ul.products {
       margin-bottom: 15px;
 
       @media (min-width: $desktop) {
-        margin-bottom: 15px;
+        margin-bottom: 30px;
       }
       
       .button {
