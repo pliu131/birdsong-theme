@@ -31,3 +31,31 @@ function remove_storefront_sidebar() {
 
 // Display 6 products per page. Goes in functions.php
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 6;' ), 20 );
+
+
+/**
+------------
+ *
+ * Change number of related products on product page
+ * Set your own value for 'posts_per_page'
+ *
+ */ 
+/**
+ * @snippet       WooCommerce/Storefront Change Number of Related Products
+ * @how-to        Watch tutorial @ https://businessbloomer.com/?p=19055
+ * @sourcecode    https://businessbloomer.com/?p=17473
+ * @author        Rodolfo Melogli
+ * @compatible    WooCommerce 2.5.3, Storefront 1.6.1
+ */
+ 
+// Change number related products for Storefront theme
+ 
+add_filter( 'woocommerce_output_related_products_args', 'bbloomer_change_number_related_products_storefront', 11 );
+ 
+function bbloomer_change_number_related_products_storefront( $args ) {
+ 
+ $args['posts_per_page'] = 4; // # of related products
+ $args['columns'] = 4; // # of columns per row
+ return $args;
+}
+?>

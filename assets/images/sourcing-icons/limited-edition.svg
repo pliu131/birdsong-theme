@@ -1,0 +1,19 @@
+<svg id="limited-edition" xmlns="http://www.w3.org/2000/svg" width="58" height="57" viewBox="0 0 58 57">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-opacity: 0;
+        stroke: #000;
+        stroke-linejoin: round;
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M488.92,2770.23a24.235,24.235,0,1,1-24.233,24.23A24.232,24.232,0,0,1,488.92,2770.23Z" transform="translate(-460 -2766)"/>
+  <path class="cls-2" d="M486.345,2774.83h4.008v19.84h-4.008v-19.84Z" transform="translate(-460 -2766)"/>
+  <path id="Shape_21_copy" data-name="Shape 21 copy" class="cls-2" d="M504.984,2807.16l-2.811,2.86-15.929-15.66,2.81-2.86Z" transform="translate(-460 -2766)"/>
+</svg>

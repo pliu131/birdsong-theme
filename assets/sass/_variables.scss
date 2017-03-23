@@ -5,7 +5,7 @@ $container-width: 67.141em;
 
 $susy: (
   columns: 12,
-  gutters: 1,
+  gutters: 1/6,
   math: fluid,
   output: float,
   gutter-position: after,
@@ -16,5 +16,6 @@ $susy: (
   );
 
 $font-family-sans-serif: 'relative-bold', sans-serif !important;
+$font-family-book: 'relative-book', sans-serif !important;
 $font-famiy-serif: 'romana', serif !important;
 $accent-color: #fa6560;

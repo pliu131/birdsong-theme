@@ -42,6 +42,12 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<tbody>
 		<?php do_action( 'woocommerce_before_cart_contents' ); ?>
 
+		<tr class="table-headers-mobile">
+			<td class="product">Product</td>
+			<td>&nbsp;</td>
+			<td class="remove">Remove</td>
+		</tr>
+
 		<?php
 		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 			$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
@@ -85,7 +91,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<td class="product-remove product-remove--mobile">
 						<?php
 							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-								'<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+								'<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s"><img src="' . get_stylesheet_directory_uri() . '/assets/images/icons/close.svg"></a>',
 								esc_url( WC()->cart->get_remove_url( $cart_item_key ) ),
 								__( 'Remove this item', 'woocommerce' ),
 								esc_attr( $product_id ),
@@ -126,7 +132,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<td class="product-remove product-remove--desktop">
 						<?php
 							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-								'<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+								'<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s"><img src="' . get_stylesheet_directory_uri() . '/assets/images/icons/close.svg"></a>',
 								esc_url( WC()->cart->get_remove_url( $cart_item_key ) ),
 								__( 'Remove this item', 'woocommerce' ),
 								esc_attr( $product_id ),

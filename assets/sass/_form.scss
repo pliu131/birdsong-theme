@@ -16,14 +16,18 @@ select {
   border: 1px solid black;
   box-shadow: none;
   color: black;
-  font-family: $font-family-sans-serif;
+  font-family: $font-family-book;
   border-radius: 0;
+  padding: 0.3em 1em;
 
   &:focus {
     background-color: transparent;
   }
 }
 
+select {
+  height: 1.6em;
+}
 
 input[type="checkbox"],
 input[type="radio"] {

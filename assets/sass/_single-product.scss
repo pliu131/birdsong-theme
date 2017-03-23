@@ -4,6 +4,12 @@
       margin-bottom: 0;
     }
   }
+
+  @media (max-width: $desktop - 1) {
+    .woocommerce-breadcrumb {
+      display: none;
+    }
+  }
 }
 
 // Sourcing Details
@@ -14,6 +20,7 @@
   white-space: normal;
 
   .sourcing-detail {
+    font-family: $font-family-book;
     display: inline-block;
     width: 32%;
     padding: 10px;
@@ -23,6 +30,7 @@
     &__text {
       font-size: 14px;
       line-height: 1;
+      white-space: normal;
     }
 
     &__icon {
@@ -254,7 +262,9 @@
         margin-bottom: 0;
 
         &__content {
-          padding: 15px 30px;
+          padding: 30px;
+          margin: 0 auto;
+          max-width: 540px;
         }
 
         .related {
@@ -270,28 +280,39 @@
 
     .variations_form {
       text-align: center;
-      margin-bottom: 0 !important;
+      margin: 0 auto;
+      max-width: 360px;
 
       .variations {
-        text-align: center;
+        td {
+          text-align: center;
+        }
 
         .label {
-          font-family: $font-family-sans-serif;
+          font-family: $font-family-book;
           padding-bottom: 5px;
         }
 
         .value {
+          position: relative;
+
           select {
+            font-family: $font-family-book;
+            border-radius: none;
             border: 1px solid black;
-            padding: 1em;
+            height: 40px;
             border-radius: 0;
             background-color: transparent;
           }
-        }
 
-        .reset_variations {
-          color: $accent-color;
-          font-family: $font-family-sans-serif;
+          .reset_variations {
+            color: $accent-color;
+            font-family: $font-family-book;
+            position: absolute;
+            top: 0;
+            right: 0;
+            line-height: 40px;
+          }
         }
       }
 
@@ -301,6 +322,10 @@
         }
 
         .quantity {
+          float: none;
+          display: inline-block;
+          margin-bottom: 15px;
+
           &:before {
             content: "Quantity";
             display: block;
@@ -309,12 +334,12 @@
           }
 
           input {
+            display: inline-block;
             background-color: transparent;
             border: 1px solid black;
             color: black;
             font-family: $font-family-sans-serif;  
             border-radius: 0;
-            margin-bottom: 15px;
           }
         }
       }
@@ -328,10 +353,13 @@
   }
 
   .related {
-    .products {
-      .product {
+    float: left;
+    padding-top: 30px;
+    padding-bottom: 30px;
 
-      }
+    > h2:first-child {
+      text-align: left;
+      font-size: 18px;
     }
   }
 }

@@ -1,4 +1,3 @@
-
 <div class="desktop-navigation-wrapper">
   <?php do_action( 'storefront_skip_links' ); ?>
 
@@ -21,16 +20,20 @@
     global $woocommerce; 
     $cart_url = $woocommerce->cart->get_cart_url();
     ?>
+
     <div class="site-controls">
+      <span class="cart-item-count">
+        <?php echo $woocommerce->cart-> get_cart_contents_count() ?>
+      </span>
       <a class="site-control site-control--cart" href="<?php echo $cart_url ?>" title="Checkout">
-        <i class="fa fa-shopping-bag"></i>
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/shopping-bag.png" alt="">
 
         <div class="navigation-cart">
           <?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
         </div>
       </a>
 
-      <a class="site-control site-control--search" href="#" title="Search"><i class="fa fa-search"></i></a>
+      <a class="site-control site-control--search" href="#" title="Search"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/search.svg" alt=""></a>
 
-  </div>
+    </div>
 </div><!-- .desktop-navigation -->

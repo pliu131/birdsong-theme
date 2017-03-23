@@ -1,5 +1,5 @@
 .navigation-cart {
-  display: none;
+  display: block;
   position: absolute;
   right: 0;
 }
@@ -16,16 +16,21 @@
     padding: 25px;
     position: relative;
     top: 25px;
+    right: 30px;
+    font-family: $font-family-book;
+    font-weight: normal;
 
     .product_list_widget {
       max-height: 240px;
       overflow: scroll;
+      font-family: $font-family-book;
+      font-weight: normal;
     }
 
     &:before {
       content: 'Your Bag';
-      font-size: 1em;
-      font-family: "relative-bold",sans-serif !important;
+      font-size: 18px;
+      font-family: $font-family-sans-serif;
       text-align: left;
       display: block;
       line-height: 1;
@@ -38,14 +43,22 @@
       padding: 20px 0;
       font-size: 1em;
       line-height: 1;
+      font-family: $font-family-book;
+      font-weight: normal;
 
       .remove {
         display: none;
       }
 
-      a:nth-child(2) {
-        display: block;
-        margin-bottom: 1em;
+      a {
+        color: black;
+        font-family: $font-family-book;
+        font-weight: normal;
+
+        &:nth-child(2) {
+          display: block;
+          margin-bottom: 1em;
+        }
       }
 
       .size-shop_thumbnail {
@@ -60,14 +73,18 @@
         margin-top: 0;
         margin-bottom: 0;
         font-size: 1em !important;
+        font-family: $font-family-book;
+        font-weight: normal;
 
         dt, dd {
           display: inline-block;
           margin: 0;
+          font-family: $font-family-book;
+          font-weight: normal;
 
           p {
-            font-family: $font-family-sans-serif;
             font-size: inherit;
+            font-family: $font-family-book;
             margin-bottom: 1em;
           }
         }
@@ -91,6 +108,11 @@
 
         span {
           float: right;
+          text-align: right;
+        }
+
+        &.total {
+          color: $accent-color;
         }
       }
     }

@@ -1,14 +1,114 @@
 // Site Header
 // Hide extra menu on live site
 .site-header-col {
+  max-width: 100% !important;
+
   > .menu {
     display: none;
+  }
+}
+
+.free-uk-shipping {
+  font-family: $font-family-book;
+  text-transform: uppercase;
+  padding: 5px;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  text-align: center;
+
+  @media (min-width: $desktop) {
+    position: absolute;
+    padding: 8px 10px;
+    top: 0;
+    right: 30px;
+    font-size: 12px;
+    display: inline-block;
+    z-index: 20;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    width: auto;
+  }
+  
+  
+  
+}
+
+.cart-item-count {
+  font-size: 14px;
+  line-height: 28px;
+  vertical-align: top;
+  font-family: $font-family-book;
+}
+
+button.main-toggle {
+  border: none;
+  text-align: center;
+  float: none;
+  display: inline-block !important;
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  box-shadow: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  span,
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: black;
+    transition: all 0.2s ease-out;
+    transform-origin: center;
+    position: absolute;
+  }
+
+  &:before {
+    transform: translateY(-8px);
+  }
+
+  &:after {
+    transform: translateY(8px);
+  }
+
+  &.menu-open {
+    span {
+      opacity: 0;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
   }
 }
 .site-header {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 0 !important;
+  position: relative;
+  z-index: 10;
+
+  @media (min-width: $desktop) {
+    margin-top: 15px;
+  }
+
+  .site-control--cart {
+    &:hover, &:focus {
+      .navigation-cart {
+        display: block;
+      }
+    }
+  }
 
   .site-toggle,
   .site-branding,
@@ -21,13 +121,17 @@
   }
 
   .site-branding {
-    .site-logo {
-      display: inline-block;
-      width: 100%;
+    > a {
+      display: block;
+    }
 
-      a {
-        float: none;
-        display: inline-block;
+    .site-logo {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+
+      @media (min-width: $desktop) {
+        margin: 0;
       }
     }
   }
@@ -68,49 +172,6 @@
         max-width: 160px;
       }
     }
-
-    .site-toggle[style] {
-      border: none;
-      text-align: center;
-      float: none;
-      display: inline-block !important;
-      padding: 0;
-      height: 40px;
-      width: 40px;
-
-      &:focus {
-        outline: none;
-      }
-
-      span:before, 
-      &:after, 
-      &:before {
-        width: 24px;
-        left: 0;
-      }
-
-      &:after {
-        transform: translateY(8px);
-      }
-
-      &:before {
-        transform: translateY(-8px);
-      }
-
-      &.menu-open {
-        span:before {
-          opacity: 0;
-        }
-
-        &:before {
-          transform: rotate(45deg);
-        }
-
-        &:after {
-          transform: rotate(-45deg);
-        }
-      }
-    }
   }
 
   // Desktop Navigation Styles
@@ -122,7 +183,7 @@
       table-layout: fixed;
       width: 100%;
 
-      .site-toggle,
+      .main-toggle,
       .site-branding,
       .site-controls,
       .site-navigation {
@@ -170,6 +231,10 @@
     font-size: 22px;
     text-align: center;
     display: inline-block;
+
+    img {
+      margin: 0 auto;
+    }
   }
 }
 
@@ -224,16 +289,22 @@
 
 
 // General Navigation Styles
-.site-navigation {
+.site-navigation,
+.mobile-links {
   .menu {
     .menu-item {
       a {
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
+        padding-top: 1em;
+        padding-bottom: 1em;
         font-size: inherit;
         letter-spacing: 0.1em;
         display: inline-block;
         line-height: 1;
+
+        @media (min-width: $desktop) {
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+        }
 
         &:before {
           display: none;
@@ -259,12 +330,13 @@
     .sub-toggle {
       position: absolute;
       top: 0px;
-      right: 0;
+      right: -1em;
       cursor: pointer;
       text-align: center;
       outline: 0;
       background: transparent;
-      font-size: 24px;
+      font-size: 18px;
+      padding: 1em;
       color: black;
     }
 
@@ -313,8 +385,8 @@
         > .menu-item {
           display: inline-block;
           text-align: left;
-          padding-left: 45px;
-          padding-right: 45px;
+          padding-left: 60px;
+          padding-right: 60px;
           vertical-align: top;
 
           > a {

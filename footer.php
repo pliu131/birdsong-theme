@@ -38,6 +38,8 @@
 
 <script>
    jQuery(function($) {
+    $('.main-toggle').show();
+    
     $('.product-images').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -52,20 +54,12 @@
       asNavFor: '.product-images',
       focusOnSelect: true
     });
-    
-    $('.site-control--cart')
-    .mouseover(function() {
-      $(".navigation-cart").show();
-    })
-    .mouseout(function() {
-      $(".navigation-cart").hide();
-    });
 
     $('.site-control--search').click(function(e) {
       e.preventDefault();
       $('.main-search').slideToggle('fast', 'linear');
       $('.mobile-links').slideUp('fast', 'linear');
-      $('.site-toggle').removeClass('menu-open');
+      $('.main-toggle').removeClass('menu-open');
     });
 
     $('.main-search__close').click(function(e) {
@@ -73,7 +67,7 @@
       $('.main-search').slideUp('fast', 'linear');
     })
 
-    $('.site-toggle').click(function() {
+    $('.main-toggle').click(function() {
       $(this).toggleClass('menu-open');
       $('.mobile-links').slideToggle();
       $('.main-search').slideUp('fast', 'linear');
@@ -87,7 +81,8 @@
 
     $('.mobile-links .sub-toggle').click(function() {
       $(this).parent('.menu-item-has-children').children('ul.sub-menu').first().slideToggle('fast', 'linear');
-      $(this).children('.fa-angle-down').first().toggleClass('fa-angle-down fa-angle-up');
+      $(this).children('.fa-angle-down').first().removeClass('fa-angle-down').addClass('fa-angle-up');
+      $(this).children('.fa-angle-up').first().removeClass('fa-angle-up').addClass('fa-angle-down');
     });
   });
 </script>

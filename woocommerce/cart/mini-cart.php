@@ -80,14 +80,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php 
 		$subtotal = WC()->cart->get_cart_subtotal();
 		$shipping = WC()->cart->get_cart_shipping_total();
-		$total = $subtotal + $shipping;
+		$total = WC()->cart->get_cart_total();
 	?>
 	<div class="cart-numbers">
 	<p class="subtotal"><strong><?php _e( 'Subtotal', 'woocommerce' ); ?></strong> <?php echo $subtotal ?></p>
 
 	<p class="shipping"><strong><?php _e( 'Shipping', 'woocommerce' ); ?></strong> <?php echo $shipping ?></p>
 
-	<p class="total"><strong><?php _e( 'Total', 'woocommerce' ); ?>:</strong> <?php echo $total ?></p>
+	<p class="total"><strong><?php _e( 'Total', 'woocommerce' ); ?></strong> <?php echo $total ?></p>
 	</div><!-- .cart-numbers --> 
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>

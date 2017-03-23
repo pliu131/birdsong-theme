@@ -5,6 +5,7 @@
   font-size: 18px;
   letter-spacing: 0.1em;
   border: 1px solid black;
+  box-shadow: none;
 }
 
 .button--primary,
@@ -12,6 +13,12 @@
   background-color: $accent-color;
   color: white;
   border-color: $accent-color;
+
+  &:hover, &:active, &:focus {
+    background-color: $accent-color;
+    color: white;
+    border-color: $accent-color;
+  }
 }
 
 .button--block,
