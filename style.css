@@ -1710,6 +1710,7 @@ ul.products:after {
   margin-bottom: 0;
   text-align: center;
   max-width: 360px;
+  display: inline-block;
 }
 @media (max-width: 767px) {
   .single-product .woocommerce-breadcrumb {

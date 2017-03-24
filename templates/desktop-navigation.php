@@ -21,7 +21,9 @@
     $cart_url = $woocommerce->cart->get_cart_url();
     ?>
 
-    <div class="site-controls">
+    <?php get_template_part('templates/dropdown-cart') ?>
+
+    <div class="site-controls" style="display: none;">
       <span class="cart-item-count">
         <?php echo $woocommerce->cart-> get_cart_contents_count() ?>
       </span>
