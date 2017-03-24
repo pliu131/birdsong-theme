@@ -28,6 +28,10 @@ table.cart {
         &.product-quantity {
           text-align: center;
         }
+
+        &.product-name {
+          padding-left: 0;
+        }
       }
     }
   }
@@ -118,11 +122,29 @@ table.cart {
       display: inline-block;
       vertical-align: middle;
 
+      &.product-thumbnail {
+        padding-left: 0;
+        text-align: left;
+      }
+
+      @media (min-width: $desktop) {
+        display: table-cell;
+        padding: 15px;
+        vertical-align: middle;
+
+        &:nth-last-child(2) {
+          td {
+            border-bottom: 2px solid black;
+          }
+        }
+      }
+
       @media (max-width: $desktop - 1) {
         &.product-price,
         &.product-quantity,
         &.product-subtotal {
           width: 33%;
+          vertical-align: top;
         }
 
         &.product-remove {
@@ -147,7 +169,12 @@ table.cart {
 
       &.product-remove {
         text-align: center;
+        padding-right: 0;
         border-top: 0;
+
+        @media (min-width: $desktop) {
+          text-align: center;
+        }
 
         .remove {
           position: relative;
@@ -180,18 +207,6 @@ table.cart {
 
       &.product-name {
         vertical-align: middle;
-      }
-
-      @media (min-width: $desktop) {
-        display: table-cell;
-        padding: 15px;
-        vertical-align: middle;
-
-        &:nth-last-child(2) {
-          td {
-            border-bottom: 2px solid black;
-          }
-        }
       }
     }
   }
@@ -262,7 +277,8 @@ table.cart {
     font-size: 14px;
     font-weight: normal;
 
-    td {
+    td,
+    th {
       @include clearfix;
       padding-left: 0;
       padding-right: 0;
@@ -318,6 +334,46 @@ table.cart {
   letter-spacing: 0.1em;
   font-size: 14px;
 
+  .hentry {
+    padding-top: 30px;
+  }
+
+  form.login {
+    @include clearfix;
+    clear: both;
+
+    @media (min-width: $desktop) {
+      @include span (6 of 12);
+    }
+
+    > p:first-child {
+      display: none;
+    }
+
+    p.form-row-first,
+    p.form-row-last {
+      @include span(6 of 12);
+
+      @media (min-width: $desktop) {
+        @include span(3 of 6);
+      }
+    }
+
+    p.form-row-last {
+      @include omega;
+    }
+
+    .button {
+      @extend %button;
+      @extend %button--primary;
+      margin-bottom: 15px;
+    }
+  }
+
+  .payment-fixed {
+    box-shadow: none;
+  }
+
   .woocommerce-info {
     font-size: 1em;
     font-family: $font-family-sans-serif;
@@ -365,6 +421,20 @@ table.cart {
   }
 
   form.checkout {
+    .create-account {
+      p {
+        letter-spacing: 0.1em;
+        font-family: $font-family-sans-serif;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .form-row {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
     .woocommerce-billing-fields,
     .woocommerce-shipping-fields {
       font-family: $font-family-sans-serif;
@@ -378,6 +448,8 @@ table.cart {
         line-height: 1;
         margin-bottom: 30px;
         padding: 10px;
+        font-family: $font-family-book;
+        font-weight: normal;
 
         label {
           font-family: $font-family-sans-serif;
@@ -428,12 +500,16 @@ table.cart {
 
     > li {
       background-color: transparent;
-      padding: 1.41575em !important; 
+      padding: 30px 0;
 
       &:hover {
         background-color: transparent;
       }
     }
+  }
+
+  .place-order {
+    padding: 30px 0;
   }
 
   .terms {
@@ -484,6 +560,10 @@ table.shop_table_responsive {
   }
 }
 
+.wc_payment_method .payment_method_stripe {
+  visibility: hidden;
+}
+
 // Order Page
 #order_review_heading {
   border-bottom: 2px solid black;
@@ -491,6 +571,7 @@ table.shop_table_responsive {
   line-height: 1;
   letter-spacing: 0.1em;
   padding: 10px;
+  font-weight: normal;
 }
 
 #order_review {
@@ -551,8 +632,7 @@ table.shop_table_responsive {
       tr {
         th, td {
           font-family: $font-family-sans-serif;
-          padding-top: 1em;
-          padding-bottom: 1em;
+          padding: 15px 0;
           display: table-cell;
         }
 

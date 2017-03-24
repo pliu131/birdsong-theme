@@ -1,32 +1,44 @@
-// Non JavaScript Fix for Load More Images
-.pif-has-gallery {
-  .woocommerce-LoopProduct-link {
+.archive {
+  .site-content {
+    .col-full {
+      max-width: 100%;
+    }
+  }
+}
+
+.woocommerce-LoopProduct-link {
+  img {
+    &:first-child:not(:only-of-type) {
+      opacity: 1;
+      transition: all 0.3s ease-out;
+    }
+
+    &:nth-child(2) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: all 0.3s ease-out; 
+    }
+  }
+
+  &:hover {
     img {
-      &:first-child {
-        opacity: 1;
-        transition: all 0.3s ease-out;
-      }
-
-      &.secondary-image {
-        position: absolute;
-        top: 0;
-        left: 0;
+      &:first-child:not(:only-of-type) {
         opacity: 0;
-        transition: all 0.3s ease-out; 
+      }
+
+      &:nth-child(2) {
+        opacity: 1;
       }
     }
+  }
+}
 
-    &:hover {
-      img {
-        &:first-child {
-          opacity: 0;
-        }
 
-        &.secondary-image {
-          opacity: 1;
-        }
-      }
-    }
+.woocommerce-LoopProduct-link {
+  img:not:only-child {
+
   }
 }
 
@@ -55,15 +67,20 @@ ul.products {
   @include clearfix;
 
   .archive &,
-  .single-product .related &,
+  .single-product div.product .related &,
   .storefront-full-width-content.single-product .related & {
     li.product {
       @include gallery (6 of 12);
+      margin-bottom: 15px;
+
+      @media (min-width: $desktop) {
+        margin-bottom: 30px;
+      }
     }
 
     h3, 
     .price {
-      font-size: 14px;
+      font-size: 14px !important;
       margin-bottom: 1em;
       color: black;
       letter-spacing: 0.1em;
@@ -83,7 +100,6 @@ ul.products {
   .archive & {
     li.product {
       @include product-styles-3;
-      font-size: 12px;
       margin-bottom: 15px;
 
       @media (min-width: $desktop) {
@@ -104,7 +120,7 @@ ul.products {
     }
   }
 
-  .single-product .related &,
+  .single-product div.product .related &,
   .storefront-full-width-content.single-product .related & {
     li.product {
       @include product-styles-4;

@@ -11,3 +11,134 @@ PDP Page Checklist
 
 Category Landing Page
 - Adding size filters is a lot trickier than expected. Need to use an AJAX plugin.
+
+
+
+Homepage
+
+1. Bag icon different
+
+2. Free shipping tab missing
+
+3. Bottom of Birdsong logo should sit level with nav cateories
+
+4. Please can Birdsong logo sit more to the left and bag and search icon sit more to the right so these are at the edge of the screen?
+
+5. Stroke on search icon too thick - please use my design
+
+6. Nav font looks a little different to the Relative in my design - please can you check this?
+
+7. Can carousel fit height of screen? Currently I can't see the bottom of the carousel.
+
+8. Too many image blocks under carousel. Please can this reduced down to 5 on desktop like in the design? Images should line up at the bottom.
+
+9. CTA in Find Out More about Our Makers has a stroke underneath. Please remove this and make buttons the same size as on the design.
+
+10. The footer categories should only go across one line - there are 6 options - please follow the design.
+
+11. Font in footer looks strange too. Please can you check this?
+
+12. Can footer categories start closer to the left edge of the page
+
+13. Please make 'your email address here' smaller
+
+14. Drop down nav - categories look squashed - typography looks strange. Please add a touch more spacing between categories.
+
+
+15. Nav dropdown should fill screen
+
+16. Pinterest icon should not be in a circle - please match with design
+
+17. Facebook icon needs to be smaller. All icons should be the same height as per design.
+
+18. Add gutter to live text in "pussy power" so more white space around text
+
+19. Make CTA rollover coral stroke with white background
+
+
+
+
+Category landing page
+
+
+1. Filter needs to change
+
+2. Please reduce size of breadcrumb
+
+3. Remove "select options" under products
+
+4. Make font weight of description and price the same. Also make the font size smaller.
+
+5. Is it possible for product images to come further to the edge of the screen and so become larger? The gutters down the sides are quite thick.
+
+6. Please can products rollover to show second image
+
+7. Please can "load more" button match styling of button in the design (black stroke)
+
+8. Remove outline from product when clicking on it
+
+
+PDP
+
+1. Make breadcrumb font smaller and please remove the product description
+
+2. Product image should be larger
+
+3. Please style up size and quantity drop downs as per design and remove "clear"
+
+4. Too much line spacing within product description copy. Please reduce this.
+
+5. Need to create carousel functionality
+
+6. Need to add Description / Additional Information / reviews
+
+7. Need to add icons
+
+8. Need to add related products
+
+9. CTA should read "add to bag" 
+
+10. Reduce length of CTA (and remove underline)
+
+11. Button didn't change when pressing "add to bag"
+
+12. Number doesn't appear or bag drop down doesn't appear under bag
+
+
+
+Bag
+
+1. Remove green banner at top. This message shouldn't appear.
+
+2. Reduce size of gutters so content sits more flush to the edge.
+
+3. Info in basket should be in regular font weight
+
+4. There should just be one entry box "apply discount code". Please match design.
+
+5. Remove "update basket"
+
+6. "X' in basket is too thick. Please add "Remove" above this
+
+7. Info such as price in basket doesn't sit neatly under the title. Please can prices be centred under price" and "total"
+
+8. Please remove breadcrumb from this page
+
+9. CTA should line up against edges of 'subtotal' "shipping' and 'total'
+
+10. "Continue shopping" and "add discount code" should be in regular weight
+
+
+Checkout sign in page - missing
+
+Checkout
+
+1. Remove blue boxes
+
+2. Category headers should be in regular weight
+
+3. Boxes / layout doesn't match up with design - looks clunk. Please can this be refined?
+
+4. Remove credit or debit card and stripe info. It should just be "proceed to payment"
+
+5. Image of product doesn't appear in bag, can this be added?

@@ -4,20 +4,27 @@
   padding: 0.3em 1em;
   font-size: 18px;
   letter-spacing: 0.1em;
+  color: black;
   border: 1px solid black;
-  box-shadow: none;
+  box-shadow: none !important;
+
+  &:hover, &:active, &:focus {
+    background-color: white;
+    color: black;
+    border-color: 1px solid black;
+  }
 }
 
 .button--primary,
 %button--primary {
   background-color: $accent-color;
   color: white;
-  border-color: $accent-color;
+  border: 1px solid $accent-color !important;
 
   &:hover, &:active, &:focus {
     background-color: white;
     color: $accent-color;
-    border-color: $accent-color;
+    border-color: 1px solid $accent-color !important;
   }
 }
 

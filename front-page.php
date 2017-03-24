@@ -18,8 +18,37 @@ get_header(); ?>
 
 
     <?php while ( have_posts() ) : the_post();
-    get_template_part( 'content', 'page' );
+      get_template_part( 'content', 'page' );
     endwhile;?>
+
+    <?php 
+      $image1 = get_field('home_page_image_1');
+      $image2 = get_field('home_page_image_2');
+      $image3 = get_field('home_page_image_3');
+      $image4 = get_field('home_page_image_4');
+      $image5 = get_field('home_page_image_5');
+    ?>
+
+    <div class="section section--images">
+      <div class="section__third">
+        <div class="section__image section__image--square" style="background-image: url(<?php echo $image1['url'] ?>)"></div>
+        <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image2['url'] ?>)"></div>
+      </div>
+
+      <div class="section__third">
+        <div class="section__text-wrapper">
+          <div class="section__text">
+            <?php the_field('home_page_content') ?>
+          </div>
+        </div>
+        <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image3['url'] ?>)"></div>
+      </div>
+
+      <div class="section__third">
+        <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image4['url'] ?>)"></div>
+        <div class="section__image section__image--square" style="background-image: url(<?php echo $image5['url'] ?>)"></div>
+      </div>
+    </div>
 
     <!-- About section -->
     <div class="section section--about text--center">

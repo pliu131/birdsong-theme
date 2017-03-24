@@ -1,19 +1,19 @@
 // layout sizes
 $desktop:     768px;
 $handheld:      568px;
-$container-width: 1150px;
+// $container-width: 1150px;
 
-$susy: (
-  columns: 12,
-  gutters: 1/3,
-  math: fluid,
-  output: float,
-  gutter-position: after,
+// $susy: (
+//   columns: 12,
+//   gutters: 1/3,
+//   math: fluid,
+//   output: float,
+//   gutter-position: after,
 
-  use-custom: (
-    box-sizing: false
-    )
-  );
+//   use-custom: (
+//     box-sizing: false
+//     )
+//   );
 
 $font-family-sans-serif: 'relative-bold', sans-serif !important;
 $font-family-book: 'relative-book', sans-serif !important;

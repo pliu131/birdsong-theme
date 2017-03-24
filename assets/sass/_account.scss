@@ -1,6 +1,24 @@
 .woocommerce-account {
+  .woocommerce-breadcrumb {
+    display: none;
+  }
+  
+  #customer_login {
+    .u-column1,
+    .u-column2 {
+      @media (min-width: $desktop) {
+        padding-left: 60px;
+        padding-right: 60px;  
+      }
+    }
+  }
   p {
     font-family: $font-family-sans-serif;
+  }
+
+  label {
+    font-family: $font-family-book;
+    font-weight: normal;
   }
 
   .entry-header {

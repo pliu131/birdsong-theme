@@ -4,6 +4,17 @@
   right: 0;
 }
 
+.added-to-cart {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.single_add_to_cart_button {
+  @media (min-width: $desktop) {
+    max-width: 240px;
+  }
+}
+
 // Desktop Shopping Cart Hover
 .widget_shopping_cart {
   .site-header & {
@@ -101,6 +112,7 @@
         padding: 0 !important;
         font-size: 1em;
         font-family: $font-family-sans-serif;
+        text-align: right;
 
         strong,
         > span {

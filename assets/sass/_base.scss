@@ -40,6 +40,10 @@ a {
   }
 }
 
+*:hover, *:active, *:focus {
+  outline: none;
+}
+
 // Figure out where this needs to be shown
 .page {
   .entry-title {

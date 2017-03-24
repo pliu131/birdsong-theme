@@ -4,40 +4,6 @@
   display: none;
 }
 
-.footer-bottom {
-  @include container;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  border-top: 1px solid $accent-color;
-  
-  &__text {
-    @include span(8 of 12);
-  }
-
-  &__subscribe {
-    @include span(4 of 12 last);
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-
-  // Social Media Icons
-  .textwidget {
-    text-align: center;
-
-    .q_social_icon_holder {
-      margin: 0 !important;
-
-      a {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-      }
-    }
-  }
-}
-
 // Social Media Icons
 .social-items {
   @extend %list-reset;
@@ -50,6 +16,10 @@
       display: block;
       padding: 15px;
       font-size: 24px;
+
+      .fa-facebook {
+        font-size: 21px;
+      }
 
       @media (min-width: $desktop) {
         padding: 0 15px;
@@ -109,6 +79,27 @@
         letter-spacing: 0.1em;
         display: inline-block;
         padding: 10px;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      display: table;
+      width: 100%;
+
+      .menu-item {
+        text-align: left;
+        display: table-cell;
+
+        a {
+          padding: 10px 0;
+          margin-right: 20px;
+        }
+
+        &:last-child {
+          a {
+            margin-right: 0;
+          }
+        }
       }
     }
   }
