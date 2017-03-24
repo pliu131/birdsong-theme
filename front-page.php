@@ -35,22 +35,37 @@ get_header(); ?>
       </div>
 
       <div class="section__part">
+        <?php if ($image1): ?>
         <div class="section__image section__image--square" style="background-image: url(<?php echo $image1['url'] ?>)"></div>
+        <?php endif; ?>
+
+        <?php if ($image2): ?>
         <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image2['url'] ?>)"></div>
+        <?php endif; ?>
       </div>
 
       <div class="section__part section__part--desktop">
+        <?php if (get_field('home_page_content')): ?>
         <div class="section__text-wrapper">
           <div class="section__text">
             <?php the_field('home_page_content') ?>
           </div>
         </div>
+        <?php endif; ?>
+
+        <?php if ($image3): ?>
         <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image3['url'] ?>)"></div>
+        <?php endif; ?>
       </div>
 
       <div class="section__part">
+        <?php if ($image4): ?>
         <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image4['url'] ?>)"></div>
+        <?php endif; ?>
+
+        <?php if ($image5): ?>
         <div class="section__image section__image--square" style="background-image: url(<?php echo $image5['url'] ?>)"></div>
+        <?php endif; ?>
       </div>
     </div>
 

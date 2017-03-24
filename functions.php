@@ -80,14 +80,12 @@ function bbloomer_change_number_related_products_storefront( $args ) {
 // https://wppatrickk.com/woocommerce-add-cart-ajax-single-product-page/
 // Ajax Single Product Add to Cart
 // Enqueue Script
-function ajax_add_to_cart_js() {
-  wp_enqueue_script( 'ajax_add_to_cart', get_stylesheet_directory_uri() . '/assets/js/ajax_add_to_cart.js', array( 'jquery' ), '1.0', true );
-  wp_localize_script( 'ajax_add_to_cart', 'my_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-}
 
 function custom_js() {
-  wp_enqueue_script( 'custom', get_stylesheet_directory_uri() . '/assets/js/custom.js', array( 'jquery' ), '1.0', true );
-  wp_enqueue_script( 'slick', 'https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', array( 'jquery' ), '1.0', true );
+  wp_enqueue_script( 'custom', get_stylesheet_directory_uri() . '/assets/js/custom.js', array( 'jquery' ));
+  wp_enqueue_script( 'slick', 'https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', array( 'jquery' ));
+  wp_enqueue_script( 'ajax_add_to_cart', get_stylesheet_directory_uri() . '/assets/js/ajax_add_to_cart.js', array( 'jquery' ));
+  wp_localize_script( 'ajax_add_to_cart', 'my_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 }
 
 add_action('wp_enqueue_scripts', 'ajax_add_to_cart_js');
