@@ -30,12 +30,16 @@ get_header(); ?>
     ?>
 
     <div class="section section--images">
-      <div class="section__third">
+      <div class="section-text-mobile">
+        <?php the_field('home_page_content') ?>
+      </div>
+
+      <div class="section__part">
         <div class="section__image section__image--square" style="background-image: url(<?php echo $image1['url'] ?>)"></div>
         <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image2['url'] ?>)"></div>
       </div>
 
-      <div class="section__third">
+      <div class="section__part section__part--desktop">
         <div class="section__text-wrapper">
           <div class="section__text">
             <?php the_field('home_page_content') ?>
@@ -44,7 +48,7 @@ get_header(); ?>
         <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image3['url'] ?>)"></div>
       </div>
 
-      <div class="section__third">
+      <div class="section__part">
         <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image4['url'] ?>)"></div>
         <div class="section__image section__image--square" style="background-image: url(<?php echo $image5['url'] ?>)"></div>
       </div>

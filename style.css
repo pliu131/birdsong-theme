@@ -2261,22 +2261,45 @@ ul.wpb_thumbnails-fluid > li {
   border-bottom: 1px solid #fa6560;
   text-align: center;
 }
-.section--images {
-  border-bottom: none;
+.section-text-mobile {
+  display: block;
+}
+@media (min-width: 768px) {
+  .section-text-mobile {
+    display: none;
+  }
 }
 .section--images:after {
   content: "";
   display: table;
   clear: both;
 }
-.section--images .section__third {
-  width: 32.20339%;
+@media (min-width: 768px) {
+  .section--images {
+    border-bottom: none;
+  }
+}
+.section--images .section__part {
+  width: 49.15254%;
   float: left;
   margin-right: 1.69492%;
 }
-.section--images .section__third:last-child {
+.section--images .section__part:last-child {
   float: right;
   margin-right: 0;
+}
+.section--images .section__part--desktop {
+  display: none;
+}
+@media (min-width: 768px) {
+  .section--images .section__part {
+    width: 32.20339%;
+    float: left;
+    margin-right: 1.69492%;
+  }
+  .section--images .section__part--desktop {
+    display: block;
+  }
 }
 .section--images .section__text-wrapper {
   position: relative;

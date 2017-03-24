@@ -7,15 +7,38 @@ ul.wpb_thumbnails-fluid>li {
   border-bottom: 1px solid $accent-color;
   text-align: center;
 
+  &-text-mobile {
+    display: block;
+
+    @media (min-width: $desktop) {
+      display: none;
+    }
+  }
+
   &--images {
     @include clearfix;
-    border-bottom: none;
 
-    .section__third {
-      @include span(4 of 12);
+    @media (min-width: $desktop) {
+      border-bottom: none;
+    }
+
+    .section__part {
+      @include span(6 of 12);
 
       &:last-child {
         @include omega;
+      }
+
+      &--desktop {
+        display: none;
+      }
+
+      @media (min-width: $desktop) {
+        @include span(4 of 12);
+
+        &--desktop {
+          display: block;
+        }
       }
     }
 
