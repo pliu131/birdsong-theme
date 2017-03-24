@@ -78,9 +78,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( ! WC()->cart->is_empty() ) : ?>
 	
 	<?php 
-		$subtotal = WC()->cart->get_cart_subtotal();
-		$shipping = WC()->cart->get_cart_shipping_total();
-		$total = WC()->cart->get_cart_total();
+		$subtotal = WC()->cart->get_subtotal();
+		$shipping = WC()->cart->get_shipping_total();
+		$total = WC()->cart->get_total();
 	?>
 	<div class="cart-numbers">
 	<p class="subtotal"><strong><?php _e( 'Subtotal', 'woocommerce' ); ?></strong> <?php echo $subtotal ?></p>

@@ -8,7 +8,7 @@
 .widget_shopping_cart {
   .site-header & {
     z-index: 20;
-    max-width: 360px;
+    width: 360px;
     background-color: white;
     border: 2px solid black;
     font-size: 14px;
@@ -16,7 +16,7 @@
     padding: 25px;
     position: relative;
     top: 25px;
-    right: 30px;
+    right: -30px;
     font-family: $font-family-book;
     font-weight: normal;
 
@@ -102,13 +102,20 @@
         font-size: 1em;
         font-family: $font-family-sans-serif;
 
-        strong {
+        strong,
+        > span {
           float: left;
+          width: 50%;
         }
 
-        span {
-          float: right;
+        strong {
+          text-align: left;
+        }
+
+        > span {
           text-align: right;
+          display: inline-block;
+          width: 50%;
         }
 
         &.total {

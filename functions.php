@@ -89,7 +89,12 @@ function ajax_add_to_cart_js() {
   wp_localize_script( 'ajax_add_to_cart', 'my_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 }
 
+function custom_js() {
+  wp_enqueue_script( 'custom', get_stylesheet_directory_uri() . '/assets/js/custom.js', array( 'jquery' ), '1.0', true );
+}
+
 add_action('wp_enqueue_scripts', 'ajax_add_to_cart_js');
+add_action('wp_enqueue_scripts', 'custom_js');
 
 function my_wc_add_cart_ajax() {
   $product_id = $_POST['product_id'];
@@ -102,56 +107,11 @@ function my_wc_add_cart_ajax() {
     WC()->cart->add_to_cart( $product_id, $quantity);
   }
 
-  $items = WC()->cart->get_cart(); ?>
+  echo wc_get_template( 'cart/mini-cart.php' );
+  die();
+}
 
-  <h4>Shopping Bag</h4>
+add_action('wp_ajax_my_wc_add_cart', 'my_wc_add_cart_ajax');
+add_action('wp_ajax_nopriv_my_wc_add_cart', 'my_wc_add_cart_ajax'); 
 
-  <?php foreach($items as $item => $values) { 
-    $_product = $values['data']->post; ?>
-
-    <div class="dropdown-cart-wrap">
-      <div class="dropdown-cart-left">
-        <?php echo get_the_post_thumbnail( $values['product_id'], 'thumbnail' ); ?>
-      </div>
-
-      <div class="dropdown-cart-right">
-        <h5><?php echo $_product->post_title; ?></h5>
-        <p>Quantity: <?php echo $values['quantity']; ?></p>
-        <p>Price: £ <?php echo get_post_meta($values['product_id'] , '_price', true); ?></p>
-      </div>
-
-      <div class="clear"></div>
-    </div>
-    <?php } ?>
-
-    <div class="dropdown-cart-wrap">
-      <div class="dropdown-cart-left">
-        <h6>Subtotal</h6>
-      </div>
-
-      <div class="dropdown-cart-right">
-        <h6><?php echo WC()->cart->get_cart_total(); ?></h6>
-      </div>
-
-      <div class="clear"></div>
-    </div>
-
-    <div class="dropdown-cart-wrap dropdown-cart-last">
-      <div class="dropdown-cart-left dropdown-cart-link">
-        <a href="/cart/">View Basket</a>
-      </div>
-
-      <div class="dropdown-cart-right dropdown-checkout-link">
-        <a href="/checkout/">Checkout</a>
-      </div>
-
-      <div class="clear"></div>
-    </div>
-
-    <?php die();
-  }
-
-  add_action('wp_ajax_my_wc_add_cart', 'my_wc_add_cart_ajax');
-  add_action('wp_ajax_nopriv_my_wc_add_cart', 'my_wc_add_cart_ajax'); 
-
-  ?>
+?>

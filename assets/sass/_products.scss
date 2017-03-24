@@ -1,3 +1,35 @@
+// Non JavaScript Fix for Load More Images
+.pif-has-gallery {
+  .woocommerce-LoopProduct-link {
+    img {
+      &:first-child {
+        opacity: 1;
+        transition: all 0.3s ease-out;
+      }
+
+      &.secondary-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: all 0.3s ease-out; 
+      }
+    }
+
+    &:hover {
+      img {
+        &:first-child {
+          opacity: 0;
+        }
+
+        &.secondary-image {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
 .lmp_load_more_button {
   a.lmp_button[style] {
     display: inline-block !important;

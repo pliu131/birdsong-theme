@@ -37,6 +37,9 @@
   line-height: 28px;
   vertical-align: top;
   font-family: $font-family-book;
+  font-weight: normal;
+  position: absolute;
+  left: -1em;
 }
 
 button.main-toggle {
@@ -100,6 +103,8 @@ button.main-toggle {
   }
 
   .site-control--cart {
+    position: relative;
+    
     &:hover, &:focus {
       .navigation-cart {
         display: block;
