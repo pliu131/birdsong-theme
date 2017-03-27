@@ -13,12 +13,12 @@
       </div>
       
       <?php 
-        global $woocommerce; 
-        $cart_url = $woocommerce->cart->get_cart_url();
+      global $woocommerce; 
+      $cart_url = $woocommerce->cart->get_cart_url();
       ?>
       <div class="site-controls">
-        <a href="<?php echo $cart_url ?>" class="site-control">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/shopping-bag.png" alt="">
+        <a href="<?php echo $cart_url ?>" class="site-control" id="cart-button-mobile">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/shopping-bag.svg" alt="">
         </a>
 
         <a class="site-control site-control--search" href="#">

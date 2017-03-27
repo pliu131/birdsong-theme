@@ -25,13 +25,13 @@
 
     <div class="site-controls">
       <!-- Still want to update this -->
-      <a class="site-control site-control--cart" href="<?php echo $cart_url ?>" title="Checkout">
+      <a id="cart-button" class="site-control site-control--cart" href="<?php echo $cart_url ?>" title="Checkout">
         <span class="cart-item-count">
           <?php echo $woocommerce->cart-> get_cart_contents_count() ?>
         </span>
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/shopping-bag.png" alt="">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/shopping-bag.svg" alt="">
 
-        <div class="navigation-cart"">
+        <div class="navigation-cart">
           <?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
         </div>
       </a>

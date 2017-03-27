@@ -115,12 +115,14 @@
   .berocket_aapf_widget-wrapper {
     ul.berocket_aapf_widget {
       margin: 0;
-      column-count: 2;
+      // column-count: 2;
       margin-bottom: 30px;
 
       li {
         display: block;
         cursor: pointer;
+        width: 50%;
+        float: left;
 
         span {
           cursor: pointer;

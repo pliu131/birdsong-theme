@@ -2,7 +2,7 @@
   background-color: white;
   color: black;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: bold !important;
   text-align: center;
   padding: 15px;
   margin: 0;
@@ -12,7 +12,7 @@
     font-family: 'romana', sans-serif !important;
     color: black;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: bold !important;
 
     &:first-of-type:before {
       display: none;

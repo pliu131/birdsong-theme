@@ -1,4 +1,5 @@
 jQuery(function($) {
+  // Product Filters JS
   $('.berocket_aapf_widget_update_button').click(function() {
     $(this).parents('.product-filter').slideUp('fast', 'linear');
   });
@@ -15,8 +16,10 @@ jQuery(function($) {
     $('.product-filter').find('input[type=checkbox]:checked').removeAttr('checked');
   });
 
+  // For whatever reason, this keeps getting hidden
   $('.main-toggle').show();
   
+  // Product Thumbnails
   $('.product-images').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -50,15 +53,22 @@ jQuery(function($) {
     $('.main-search').slideUp('fast', 'linear');
   });
 
-  var dropdownLinks = $('.desktop-links .menu > .menu-item-has-children > a');
+  // var dropdownLinks = $('.desktop-links .menu > .menu-item-has-children > a');
 
-  dropdownLinks.append('&nbsp;<i class="fa fa-angle-down"></i>');
+  // dropdownLinks.append('&nbsp;<i class="fa fa-angle-down"></i>');
 
   $('.mobile-links .menu-item-has-children').append('<span class="sub-toggle"> <i class="fa fa-angle-down"></i> </span>');
 
+  
   $('.mobile-links .sub-toggle').click(function() {
     $(this).parent('.menu-item-has-children').children('ul.sub-menu').first().slideToggle('fast', 'linear');
-    $(this).children('.fa-angle-down').first().removeClass('fa-angle-down').addClass('fa-angle-up');
-    $(this).children('.fa-angle-up').first().removeClass('fa-angle-up').addClass('fa-angle-down');
+    $("i", this).toggleClass("fa-angle-down fa-angle-up");
+    // icon = $(this).find("i").first();
+    // icon.hasClass("fa-angle-down") {
+    //   icon.addClass("fa-angle-up").removeClass("fa-angle-down");
+    // } else {
+    //   icon.addClass("fa-angle-down").removeClass("fa-angle-up");
+    // }
+    // $(this).children('.fa-angle-down').first().toggleClass('fa-angle-up');
   });
 });

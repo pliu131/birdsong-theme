@@ -9,8 +9,10 @@ ul.wpb_thumbnails-fluid>li {
 
   &-text-mobile {
     display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
-    @media (min-width: $desktop) {
+    @media (min-width: 1000px) {
       display: none;
     }
   }
@@ -18,7 +20,7 @@ ul.wpb_thumbnails-fluid>li {
   &--images {
     @include clearfix;
 
-    @media (min-width: $desktop) {
+    @media (min-width: 1000px) {
       border-bottom: none;
     }
 
@@ -33,7 +35,7 @@ ul.wpb_thumbnails-fluid>li {
         display: none;
       }
 
-      @media (min-width: $desktop) {
+      @media (min-width: 1000px) {
         @include span(4 of 12);
 
         &--desktop {
@@ -129,7 +131,9 @@ ul.wpb_thumbnails-fluid>li {
 
           img {
             display: block;
-            width: 50%;
+            width: 48%;
+            margin-left: 1%;
+            margin-right: 1%;
             float: left;
           }
         }

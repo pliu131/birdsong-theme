@@ -1,6 +1,7 @@
 body {
   color: black;
   font-size: 16px;
+  font-weight: normal;
 }
 
 img {
@@ -20,6 +21,10 @@ table {
   th {
     background-color: transparent;
   }
+}
+
+* {
+  font-weight: normal !important;
 }
 
 

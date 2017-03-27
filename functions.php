@@ -110,11 +110,16 @@ function my_wc_add_cart_ajax() {
   <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/shopping-bag.png" alt="">
 
   <div class="navigation-cart">
-    <div class="widget woocommerce widget_shopping_cart">
-      <div class="widget_shopping_cart_content">
-        <div class="added-to-cart">Item added to cart!</div>
+    <div class="navigation-cart__content">
+      <a href="#" class="navigation-cart__close">
+        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icons/close.svg" alt="">
+      </a>
+      <div class="widget woocommerce widget_shopping_cart">
+        <div class="widget_shopping_cart_content">
+          <div class="added-to-cart">Item added to cart</div>
 
-        <?php echo wc_get_template( 'cart/mini-cart.php' ); ?>
+          <?php echo wc_get_template( 'cart/mini-cart.php' ); ?>
+        </div>
       </div>
     </div>
   </div>
@@ -250,13 +255,13 @@ if(function_exists("register_field_group"))
 }
 
 add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_single_add_to_cart_text' );  // 2.1 +
-  
+
 function woo_custom_single_add_to_cart_text() {
   return __( 'Add to Bag', 'woocommerce' );
 }
 
 add_filter( 'woocommerce_product_add_to_cart_text', 'woo_custom_product_add_to_cart_text' );  // 2.1 +
-  
+
 function woo_custom_product_add_to_cart_text() {  
   return __( 'Add to Bag', 'woocommerce' );
 }
@@ -276,7 +281,7 @@ if(function_exists("register_field_group"))
         'save_format' => 'object',
         'preview_size' => 'full',
         'library' => 'all',
-      ),
+        ),
       array (
         'key' => 'field_58d484f150ae6',
         'label' => 'Home Page Image 2',
@@ -286,7 +291,7 @@ if(function_exists("register_field_group"))
         'save_format' => 'object',
         'preview_size' => 'full',
         'library' => 'all',
-      ),
+        ),
       array (
         'key' => 'field_58d484f050ae5',
         'label' => 'Home Page Image 3',
@@ -296,7 +301,7 @@ if(function_exists("register_field_group"))
         'save_format' => 'object',
         'preview_size' => 'full',
         'library' => 'all',
-      ),
+        ),
       array (
         'key' => 'field_58d484ee50ae4',
         'label' => 'Home Page Image 4',
@@ -306,7 +311,7 @@ if(function_exists("register_field_group"))
         'save_format' => 'object',
         'preview_size' => 'full',
         'library' => 'all',
-      ),
+        ),
       array (
         'key' => 'field_58d484ec50ae3',
         'label' => 'Home Page Image 5',
@@ -316,7 +321,7 @@ if(function_exists("register_field_group"))
         'save_format' => 'object',
         'preview_size' => 'full',
         'library' => 'all',
-      ),
+        ),
       array (
         'key' => 'field_58d4853f68c72',
         'label' => 'Home Page Content',
@@ -326,7 +331,7 @@ if(function_exists("register_field_group"))
         'default_value' => '',
         'toolbar' => 'full',
         'media_upload' => 'yes',
-      ),
+        ),
       array (
         'key' => 'field_58d486a33a85b',
         'label' => 'Home Page Image Link 1',
@@ -338,7 +343,7 @@ if(function_exists("register_field_group"))
         'append' => '',
         'formatting' => 'html',
         'maxlength' => '',
-      ),
+        ),
       array (
         'key' => 'field_58d486c23a85c',
         'label' => 'Home Page Image Link 2',
@@ -350,7 +355,7 @@ if(function_exists("register_field_group"))
         'append' => '',
         'formatting' => 'html',
         'maxlength' => '',
-      ),
+        ),
       array (
         'key' => 'field_58d486c33a85d',
         'label' => 'Home Page Image Link 3',
@@ -362,7 +367,7 @@ if(function_exists("register_field_group"))
         'append' => '',
         'formatting' => 'html',
         'maxlength' => '',
-      ),
+        ),
       array (
         'key' => 'field_58d486c53a85e',
         'label' => 'Home Page Image Link 4',
@@ -374,7 +379,7 @@ if(function_exists("register_field_group"))
         'append' => '',
         'formatting' => 'html',
         'maxlength' => '',
-      ),
+        ),
       array (
         'key' => 'field_58d486c73a85f',
         'label' => 'Home Page Image Link 5',
@@ -386,8 +391,8 @@ if(function_exists("register_field_group"))
         'append' => '',
         'formatting' => 'html',
         'maxlength' => '',
+        ),
       ),
-    ),
     'location' => array (
       array (
         array (
@@ -396,18 +401,40 @@ if(function_exists("register_field_group"))
           'value' => 'front_page',
           'order_no' => 0,
           'group_no' => 0,
+          ),
         ),
       ),
-    ),
     'options' => array (
       'position' => 'normal',
       'layout' => 'no_box',
       'hide_on_screen' => array (
+        ),
       ),
-    ),
     'menu_order' => 0,
-  ));
+    ));
 }
 
+add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
+function woo_rename_tabs( $tabs ) {
+
+  $tabs['description']['title'] = __( 'Makers' );   // Rename the description tab
+  // $tabs['reviews']['title'] = __( 'Ratings' );        // Rename the reviews tab
+  // $tabs['additional_information']['title'] = __( 'Product Data' );  // Rename the additional information tab
+
+  return $tabs;
+
+}
+
+// Redirect to login page if not logged in
+// function wpse_131562_redirect() {
+//   if (
+//     ! is_user_logged_in()
+//     && (is_cart() || is_checkout())
+//     ) {
+//       wp_redirect(get_permalink( get_option('woocommerce_myaccount_page_id') ));
+//   exit;
+// }
+// }
+// add_action('template_redirect', 'wpse_131562_redirect');
 
 ?>

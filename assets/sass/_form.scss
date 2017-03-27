@@ -20,7 +20,13 @@ select {
   border-radius: 0;
   padding: 0.3em 1em;
 
-  &:focus {
+  &:focus, &:active, &:focus {
+    background-color: transparent;
+  }
+}
+
+button {
+  &:focus, &:active, &:focus {
     background-color: transparent;
   }
 }
@@ -32,4 +38,40 @@ select {
 input[type="checkbox"],
 input[type="radio"] {
   margin-right: 0.5em;
+}
+
+.woocommerce-error, 
+.woocommerce-info, 
+.woocommerce-message, 
+.woocommerce-noreviews, 
+p.no-comments {
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+  border-radius: 0;
+  text-align: center;
+  font-family: $font-family-book;
+  font-weight: normal;
+
+  li, strong {
+    font-family: $font-family-book;
+    font-weight: normal;
+  }
+}
+
+.woocommerce-error {
+  border: 1px solid $accent-color;
+  color: $accent-color;
+}
+
+.form-row.woocommerce-invalid {
+  input.input-text {
+    box-shadow: none;
+    border-color: $accent-color;
+  }
+}
+
+.woocommerce-account .button {
+  @extend %button;
+  @extend %button--primary;
 }

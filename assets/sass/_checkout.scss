@@ -1,3 +1,7 @@
+.update-cart-button {
+  display: none;
+}
+
 // General Cart Everywhere
 table.cart {
   width: 100%;
@@ -23,6 +27,7 @@ table.cart {
         text-transform: capitalize;
         padding: 10px 15px;
         border-bottom: 2px solid black;
+        font-family: $font-family-sans-serif;
 
         &.product-price,
         &.product-quantity {
@@ -334,6 +339,10 @@ table.cart {
   letter-spacing: 0.1em;
   font-size: 14px;
 
+  textarea[name="order_comments"] {
+    height: 200px !important;
+  }
+
   .hentry {
     padding-top: 30px;
   }
@@ -352,7 +361,7 @@ table.cart {
 
     p.form-row-first,
     p.form-row-last {
-      @include span(6 of 12);
+      @include span(12 of 12);
 
       @media (min-width: $desktop) {
         @include span(3 of 6);
@@ -360,7 +369,9 @@ table.cart {
     }
 
     p.form-row-last {
-      @include omega;
+      @media (min-width: $desktop) {
+        @include omega;
+      }
     }
 
     .button {
@@ -448,8 +459,7 @@ table.cart {
         line-height: 1;
         margin-bottom: 30px;
         padding: 10px;
-        font-family: $font-family-book;
-        font-weight: normal;
+        font-family: $font-family-sans-serif;
 
         label {
           font-family: $font-family-sans-serif;
@@ -467,13 +477,17 @@ table.cart {
       }
 
       .form-row {
-        float: left;
-        width: 50%;
-        padding-left: 10px;
-        padding-right: 10px;
         margin-left: 0;
         margin-right: 0;
         margin-bottom: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        @media (min-width: $desktop) {
+          float: left;
+          width: 50%;
+        }
+        
 
         &-wide,
         &#order_comments_field {
@@ -497,6 +511,7 @@ table.cart {
     background-color: transparent;
     font-family: $font-family-book;
     font-weight: normal;
+    display: none;
 
     > li {
       background-color: transparent;
@@ -510,6 +525,11 @@ table.cart {
 
   .place-order {
     padding: 30px 0;
+
+    .button {
+      @extend %button;
+      @extend %button--primary;
+    }
   }
 
   .terms {
@@ -572,6 +592,7 @@ table.shop_table_responsive {
   letter-spacing: 0.1em;
   padding: 10px;
   font-weight: normal;
+  font-family: $font-family-sans-serif;
 }
 
 #order_review {
@@ -657,4 +678,8 @@ table.shop_table_responsive {
       }
     }
   }
+}
+
+.form-row.woocommerce-validated input.input-text {
+  box-shadow: none;
 }
