@@ -3068,6 +3068,11 @@ table.customer-details td {
 .customer-details-open .fa {
   float: right;
 }
+@media (min-width: 768px) {
+  .customer-details-open .fa {
+    float: none;
+  }
+}
 
 .continue-button-wrapper {
   padding-top: 15px;

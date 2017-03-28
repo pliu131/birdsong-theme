@@ -1,147 +1,71 @@
-<!-- https://test.birdsong.london/checkout/order-received/27874/?key=wc_order_58da97eb912e7&utm_nooverride=1 -->
-<h3 class="woocommerce-thankyou-order-received">Thank you for supporting Women. Your order has been received.</h3>
+<?php
+/**
+ * Thankyou page
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/checkout/thankyou.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ *
+ * @see 	    https://docs.woocommerce.com/document/template-structure/
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
+ * @version     2.2.0
+ */
 
-<h4 class="thankyou-order-number">
-  Your order number : 2581
-</h4>
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-<div class="order-products-wrapper">
-  <table class="order-products">
-    <tbody>
-      <tr class="order-product">
-        <td class="order-product__image">
-          <img src="http://placehold.it/100x150" alt="">
-        </td>
+if ( $order ) : ?>
 
-        <td class="order-product__description">
-          <span class="order-product__label">Product</span>
-          <span class="order-product__description">
-            Organic Cotton Hand-Painted Double Avocado Sweatshirt<br>
-            Size: S
-          </span>
-        </td>
+	<?php if ( $order->has_status( 'failed' ) ) : ?>
 
-        <td class="order-product__price">
-          <span class="order-product__label">Price</span>
-          <span class="order-product__amount">£52.00</span>
-        </td>
+		<p class="woocommerce-thankyou-order-failed"><?php _e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ); ?></p>
 
-        <td class="order-product__quantity">
-          <span class="order-product__label">Quantity</span>
-          <span class="order-product__count">1</span>
-        </td>
+		<p class="woocommerce-thankyou-order-failed-actions">
+			<a href="<?php echo esc_url( $order->get_checkout_payment_url() ); ?>" class="button pay"><?php _e( 'Pay', 'woocommerce' ) ?></a>
+			<?php if ( is_user_logged_in() ) : ?>
+				<a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" class="button pay"><?php _e( 'My Account', 'woocommerce' ); ?></a>
+			<?php endif; ?>
+		</p>
 
-        <td class="order-product__subtotal">
-          <span class="order-product__label">Subtotal</span>
-          <span class="order-product__subtotal-amount">£52.00</span>
-        </td>
-      </tr>
+	<?php else : ?>
 
-      <tr class="order-product">
-        <td class="order-product__image">
-          <img src="http://placehold.it/100x150" alt="">
-        </td>
+		<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
 
-        <td class="order-product__description">
-          <span class="order-product__label">Product</span>
-          <span class="order-product__description">
-            Organic Cotton Hand-Painted Double Avocado Sweatshirt<br>
-            Size: S
-          </span>
-        </td>
+		<ul class="woocommerce-thankyou-order-details order_details">
+			<li class="order">
+				<?php _e( 'Order Number:', 'woocommerce' ); ?>
+				<strong><?php echo $order->get_order_number(); ?></strong>
+			</li>
+			<li class="date">
+				<?php _e( 'Date:', 'woocommerce' ); ?>
+				<strong><?php echo date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ); ?></strong>
+			</li>
+			<li class="total">
+				<?php _e( 'Total:', 'woocommerce' ); ?>
+				<strong><?php echo $order->get_formatted_order_total(); ?></strong>
+			</li>
+			<?php if ( $order->payment_method_title ) : ?>
+			<li class="method">
+				<?php _e( 'Payment Method:', 'woocommerce' ); ?>
+				<strong><?php echo $order->payment_method_title; ?></strong>
+			</li>
+			<?php endif; ?>
+		</ul>
+		<div class="clear"></div>
 
-        <td class="order-product__price">
-          <span class="order-product__label">Price</span>
-          <span class="order-product__amount">£52.00</span>
-        </td>
+	<?php endif; ?>
 
-        <td class="order-product__quantity">
-          <span class="order-product__label">Quantity</span>
-          <span class="order-product__count">1</span>
-        </td>
+	<?php do_action( 'woocommerce_thankyou_' . $order->payment_method, $order->id ); ?>
+	<?php do_action( 'woocommerce_thankyou', $order->id ); ?>
 
-        <td class="order-product__subtotal">
-          <span class="order-product__label">Subtotal</span>
-          <span class="order-product__subtotal-amount">£52.00</span>
-        </td>
-      </tr>
-    </tbody>
-  </table><!-- .order-products --> 
-</div><!-- .order-products-wrapper --> 
+<?php else : ?>
 
+	<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
 
-<div class="order-summary-wrapper">
-  <table class="order-summary">
-    <tbody>
-      <tr>
-        <th>Subtotal</th>
-        <td>£104.00</td>
-      </tr>
-
-      <tr>
-        <th>Shipping</th>
-        <td>Free Shipping</td>
-      </tr>
-
-      <tr class="order-summary__total">
-        <th>Total</th>
-        <td>£104.00</td>
-      </tr>
-
-      <tr>
-        <th>Payment type</th>
-        <td>Credit or Debit Card (Stripe)</td>
-      </tr>
-
-      <tr>
-        <th>Date</th>
-        <td>28th March 2017</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <a href="#" class="button button--primary button--block text--center">Continue Shopping</a>
-</div>
-
-<div class="customer-details-wrapper">
-  <a class="customer-details-open" href="#">
-    Your Details <i class="fa fa-angle-down"></i>
-  </a>
-  <table class="customer-details">
-    <tbody>
-      <tr>
-        <th>Email</th>
-        <td>peter@elastiqdesign.com</td>
-      </tr>
-
-      <tr>
-        <th>Telephone</th>
-        <td>3473500849</td>
-      </tr>
-
-      <tr>
-        <th>Billing Address</th>
-        <td>Peter Liu
-          2916 86th Street
-          1A
-          Brooklyn, NY 11223
-          United States (US)
-        </td>
-      </tr>
-
-      <tr>
-        <th>Shipping Address</th>
-        <td>
-          Peter Liu
-          2916 86th Street
-          1A
-          Brooklyn, NY 11223
-          United States (US)
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <a href="#" class="button button--primary button--block text--center">Continue Shopping</a>
-</div><!-- .customer-details-wrapper -->
-
+<?php endif; ?>

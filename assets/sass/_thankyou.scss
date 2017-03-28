@@ -169,7 +169,7 @@ table.customer-details {
 // Customer Details
 .customer-details-wrapper {
   margin-bottom: 15px;
-  
+
   @media (min-width: $desktop) {
     width: 33.33333%;
     float: left;
@@ -193,6 +193,12 @@ table.customer-details {
   .fa {
     float: right;
   }
+
+  @media (min-width: $desktop) {
+    .fa {
+      float: none;
+    }
+  } 
 }
 
 // Continue Button Wrapper

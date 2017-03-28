@@ -24,42 +24,26 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 	return;
 }
 ?>
-<tr class="order-product">
-	<td class="order-product__image"><?php echo $product->get_image(); ?></td>
-	
-	<td class="order-product__description">
-		<span class="order-product__label">Product</span>
-		<span class="order-product__name">
-			<?php echo $item['name']; ?>
-			<?php do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order );
+<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
+	<td class="product-name">
+		<?php
+			$is_visible        = $product && $product->is_visible();
+			$product_permalink = apply_filters( 'woocommerce_order_item_permalink', $is_visible ? $product->get_permalink( $item ) : '', $item, $order );
+
+			echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s">%s</a>', $product_permalink, $item['name'] ) : $item['name'], $item, $is_visible );
+			echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', $item['qty'] ) . '</strong>', $item );
+
+			do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order );
 
 			$order->display_item_meta( $item );
 			$order->display_item_downloads( $item );
 
-			do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order ); ?>
-		</span>
+			do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order );
+		?>
 	</td>
-
-	<td class="order-product__price">
-    <span class="order-product__label">Price</span>
-    <span class="order-product__amount">
-      <?php echo wc_price($product->price); ?>
-    </span>
-  </td>
-
-	<td class="order-product__quantity">
-    <span class="order-product__label">Quantity</span>
-    <span class="order-product__count">
-      <?php echo $item['qty']; ?>
-    </span>
-  </td>
-
-  <td class="order-product__subtotal">
-    <span class="order-product__label">Subtotal</span>
-    <span class="order-product__subtotal-amount">
-      <?php echo $order->get_formatted_line_subtotal( $item ); ?>
-    </span>
-  </td>
+	<td class="product-total">
+		<?php echo $order->get_formatted_line_subtotal( $item ); ?>
+	</td>
 </tr>
 <?php if ( $show_purchase_note && $purchase_note ) : ?>
 <tr class="product-purchase-note">
