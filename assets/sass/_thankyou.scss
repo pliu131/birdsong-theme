@@ -38,10 +38,6 @@ table tbody tr:nth-child(2n) td {
   font-size: 14px;
   background-color: transparent;
 
-  span {
-    display: block;
-  }
-
   .order-product__label {
     font-family: $font-family-sans-serif;
     margin-bottom: 1em;
@@ -56,9 +52,27 @@ table tbody tr:nth-child(2n) td {
     padding: 15px 0;
     background-color: transparent;
 
+    > span {
+      display: block;
+    }
+
     &.order-product__image {
       img {
         width: 100px;
+        margin: 0 !important;
+      }
+    }
+
+    dl.variation {
+      font-size: 1em;
+      font-family: $font-family-book;
+
+      dt, dd {
+        font-family: $font-family-book;
+        
+        p {
+          font-family: $font-family-book;
+        }
       }
     }
 

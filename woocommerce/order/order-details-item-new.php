@@ -29,7 +29,7 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
   $is_visible        = $product && $product->is_visible();
   $product_permalink = apply_filters( 'woocommerce_order_item_permalink', $is_visible ? $product->get_permalink( $item ) : '', $item, $order );
   $product_image = $product->get_image();
-  $product_price = $product->price;
+  $product_price = $product->get_price();
   $product_name = $item['name'];
   $item_quantity = $item['qty']
   $item_total = $order->get_formatted_line_subtotal($item);

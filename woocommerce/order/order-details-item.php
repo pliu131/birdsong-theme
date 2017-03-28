@@ -61,8 +61,3 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
     </span>
   </td>
 </tr>
-<?php if ( $show_purchase_note && $purchase_note ) : ?>
-<tr class="product-purchase-note">
-	<td colspan="3"><?php echo wpautop( do_shortcode( wp_kses_post( $purchase_note ) ) ); ?></td>
-</tr>
-<?php endif; ?>

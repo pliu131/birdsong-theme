@@ -2938,9 +2938,6 @@ table tbody tr:nth-child(2n) td {
   font-size: 14px;
   background-color: transparent;
 }
-.order-product span {
-  display: block;
-}
 .order-product .order-product__label {
   font-family: "relative-bold", sans-serif !important;
   margin-bottom: 1em;
@@ -2953,8 +2950,22 @@ table tbody tr:nth-child(2n) td {
   padding: 15px 0;
   background-color: transparent;
 }
+.order-product td > span {
+  display: block;
+}
 .order-product td.order-product__image img {
   width: 100px;
+  margin: 0 !important;
+}
+.order-product td dl.variation {
+  font-size: 1em;
+  font-family: "relative-book", sans-serif !important;
+}
+.order-product td dl.variation dt, .order-product td dl.variation dd {
+  font-family: "relative-book", sans-serif !important;
+}
+.order-product td dl.variation dt p, .order-product td dl.variation dd p {
+  font-family: "relative-book", sans-serif !important;
 }
 @media (min-width: 768px) {
   .order-product td {

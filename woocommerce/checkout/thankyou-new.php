@@ -125,7 +125,7 @@ if ( $order ) : ?>
 
     <tr>
       <th>Shipping</th>
-      <td><?php echo $order->get_total_shipping(); ?></td>
+      <td><?php echo wc_price($order->get_total_shipping()); ?></td>
     </tr>
 
     <tr class="order-summary__total">
