@@ -24,7 +24,7 @@ table {
 }
 
 * {
-  font-weight: normal !important;
+  font-weight: normal;
 }
 
 
@@ -33,12 +33,14 @@ h1, h2, h3, h4, h5, h6 {
   color: black;
   letter-spacing: 0.1em;
   line-height: 1.25;
+  font-weight: normal;
 }
 
 a {
   font-family: $font-family-sans-serif;
   letter-spacing: 0.1em;
   display: inline-block;
+  font-weight: normal;
 
   &:hover, &:active, &:focus {
     outline: none;
@@ -66,4 +68,13 @@ a {
   .page-title {
     display: none;
   }
+}
+
+.added_to_cart, 
+.button, 
+button, 
+input[type="button"], 
+input[type="reset"], 
+input[type="submit"] {
+  font-weight: normal;
 }

@@ -82,6 +82,7 @@ function bbloomer_change_number_related_products_storefront( $args ) {
 // Enqueue Script
 
 function custom_js() {
+  wp_enqueue_script( 'quantity', get_stylesheet_directory_uri() . '/assets/js/quantity.js', array( 'jquery' ));
   wp_enqueue_script( 'custom', get_stylesheet_directory_uri() . '/assets/js/custom.js', array( 'jquery' ));
   wp_enqueue_script( 'slick', 'https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', array( 'jquery' ));
   wp_enqueue_script( 'ajax_add_to_cart', get_stylesheet_directory_uri() . '/assets/js/ajax_add_to_cart.js', array( 'jquery' ));
@@ -425,16 +426,177 @@ function woo_rename_tabs( $tabs ) {
 
 }
 
-// Redirect to login page if not logged in
-// function wpse_131562_redirect() {
-//   if (
-//     ! is_user_logged_in()
-//     && (is_cart() || is_checkout())
-//     ) {
-//       wp_redirect(get_permalink( get_option('woocommerce_myaccount_page_id') ));
-//   exit;
-// }
-// }
-// add_action('template_redirect', 'wpse_131562_redirect');
 
+// Adjust Product Breadcrumbs to use Primary Breadcrumb
+// Add product categories to the "Product" breadcrumb in WooCommerce.
+ 
+// Get breadcrumbs on product pages that read: Home > Shop > Product category > Product Name
+add_filter( 'woo_breadcrumbs_trail', 'woo_custom_breadcrumbs_trail_add_product_categories', 20 );
+ 
+function woo_custom_breadcrumbs_trail_add_product_categories ( $trail ) {
+  if ( ( get_post_type() == 'product' ) && is_singular() ) {
+    global $post;
+    
+    $taxonomy = 'product_cat';
+    
+    $terms = get_the_terms( $post->ID, $taxonomy );
+    $links = array();
+ 
+    if ( $terms && ! is_wp_error( $terms ) ) {
+    $count = 0;
+      foreach ( $terms as $c ) {
+        $count++;
+        if ( $count > 1 ) { continue; }
+        $parents = woo_get_term_parents( $c->term_id, $taxonomy, true, ', ', $c->name, array() );
+ 
+        if ( $parents != '' && ! is_wp_error( $parents ) ) {
+          $parents_arr = explode( ', ', $parents );
+          
+          foreach ( $parents_arr as $p ) {
+            if ( $p != '' ) { $links[] = $p; }
+          }
+        }
+      }
+      
+      // Add the trail back on to the end.
+      // $links[] = $trail['trail_end'];
+      $trail_end = get_the_title($post->ID);
+ 
+      // Add the new links, and the original trail's end, back into the trail.
+      array_splice( $trail, 2, count( $trail ) - 1, $links );
+      
+      $trail['trail_end'] = $trail_end;
+    }
+  }
+ 
+  return $trail;
+} // End woo_custom_breadcrumbs_trail_add_product_categories()
+ 
+/**
+ * Retrieve term parents with separator.
+ *
+ * @param int $id Term ID.
+ * @param string $taxonomy.
+ * @param bool $link Optional, default is false. Whether to format with link.
+ * @param string $separator Optional, default is '/'. How to separate terms.
+ * @param bool $nicename Optional, default is false. Whether to use nice name for display.
+ * @param array $visited Optional. Already linked to terms to prevent duplicates.
+ * @return string
+ */
+ 
+if ( ! function_exists( 'woo_get_term_parents' ) ) {
+function woo_get_term_parents( $id, $taxonomy, $link = false, $separator = '/', $nicename = false, $visited = array() ) {
+  $chain = '';
+  $parent = &get_term( $id, $taxonomy );
+  if ( is_wp_error( $parent ) )
+    return $parent;
+ 
+  if ( $nicename ) {
+    $name = $parent->slug;
+  } else {
+    $name = $parent->name;
+  }
+ 
+  if ( $parent->parent && ( $parent->parent != $parent->term_id ) && !in_array( $parent->parent, $visited ) ) {
+    $visited[] = $parent->parent;
+    $chain .= woo_get_term_parents( $parent->parent, $taxonomy, $link, $separator, $nicename, $visited );
+  }
+ 
+  if ( $link ) {
+    $chain .= '<a href="' . get_term_link( $parent, $taxonomy ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $parent->name ) ) . '">'.$parent->name.'</a>' . $separator;
+  } else {
+    $chain .= $name.$separator;
+  }
+  return $chain;
+} // End woo_get_term_parents()
+}
+
+function get_order_details($order_id){
+
+    // 1) Get the Order object
+    $order = wc_get_order( $order_id );
+
+    // OUTPUT
+    echo '<h3>RAW OUTPUT OF THE ORDER OBJECT: </h3>';
+    print_r($order);
+    echo '<br><br>';
+    echo '<h3>THE ORDER OBJECT (Using the object syntax notation):</h3>';
+    echo '$order->order_type: ' . $order->order_type . '<br>';
+    echo '$order->id: ' . $order->id . '<br>';
+    echo '<h4>THE POST OBJECT:</h4>';
+    echo '$order->post->ID: ' . $order->post->ID . '<br>';
+    echo '$order->post->post_author: ' . $order->post->post_author . '<br>';
+    echo '$order->post->post_date: ' . $order->post->post_date . '<br>';
+    echo '$order->post->post_date_gmt: ' . $order->post->post_date_gmt . '<br>';
+    echo '$order->post->post_content: ' . $order->post->post_content . '<br>';
+    echo '$order->post->post_title: ' . $order->post->post_title . '<br>';
+    echo '$order->post->post_excerpt: ' . $order->post->post_excerpt . '<br>';
+    echo '$order->post->post_status: ' . $order->post->post_status . '<br>';
+    echo '$order->post->comment_status: ' . $order->post->comment_status . '<br>';
+    echo '$order->post->ping_status: ' . $order->post->ping_status . '<br>';
+    echo '$order->post->post_password: ' . $order->post->post_password . '<br>';
+    echo '$order->post->post_name: ' . $order->post->post_name . '<br>';
+    echo '$order->post->to_ping: ' . $order->post->to_ping . '<br>';
+    echo '$order->post->pinged: ' . $order->post->pinged . '<br>';
+    echo '$order->post->post_modified: ' . $order->post->post_modified . '<br>';
+    echo '$order->post->post_modified_gtm: ' . $order->post->post_modified_gtm . '<br>';
+    echo '$order->post->post_content_filtered: ' . $order->post->post_content_filtered . '<br>';
+    echo '$order->post->post_parent: ' . $order->post->post_parent . '<br>';
+    echo '$order->post->guid: ' . $order->post->guid . '<br>';
+    echo '$order->post->menu_order: ' . $order->post->menu_order . '<br>';
+    echo '$order->post->post_type: ' . $order->post->post_type . '<br>';
+    echo '$order->post->post_mime_type: ' . $order->post->post_mime_type . '<br>';
+    echo '$order->post->comment_count: ' . $order->post->comment_count . '<br>';
+    echo '$order->post->filter: ' . $order->post->filter . '<br>';
+    echo '<h4>THE ORDER OBJECT (again):</h4>';
+    echo '$order->order_date: ' . $order->order_date . '<br>';
+    echo '$order->modified_date: ' . $order->modified_date . '<br>';
+    echo '$order->customer_message: ' . $order->customer_message . '<br>';
+    echo '$order->customer_note: ' . $order->customer_note . '<br>';
+    echo '$order->post_status: ' . $order->post_status . '<br>';
+    echo '$order->prices_include_tax: ' . $order->prices_include_tax . '<br>';
+    echo '$order->tax_display_cart: ' . $order->tax_display_cart . '<br>';
+    echo '$order->display_totals_ex_tax: ' . $order->display_totals_ex_tax . '<br>';
+    echo '$order->display_cart_ex_tax: ' . $order->display_cart_ex_tax . '<br>';
+    echo '$order->formatted_billing_address->protected: ' . $order->formatted_billing_address->protected . '<br>';
+    echo '$order->formatted_shipping_address->protected: ' . $order->formatted_shipping_address->protected . '<br><br>';
+    echo '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <br><br>';
+
+    // 2) Get the Order meta data
+    $order_meta = get_post_meta($order_id);
+
+    echo '<h3>RAW OUTPUT OF THE ORDER META DATA (ARRAY): </h3>';
+    print_r($order_meta);
+    echo '<br><br>';
+    echo '<h3>THE ORDER META DATA (Using the array syntax notation):</h3>';
+    echo '$order_meta[_order_key][0]: ' . $order_meta[_order_key][0] . '<br>';
+    echo '$order_meta[_order_currency][0]: ' . $order_meta[_order_currency][0] . '<br>';
+    echo '$order_meta[_prices_include_tax][0]: ' . $order_meta[_prices_include_tax][0] . '<br>';
+    echo '$order_meta[_customer_user][0]: ' . $order_meta[_customer_user][0] . '<br>';
+    echo '$order_meta[_billing_first_name][0]: ' . $order_meta[_billing_first_name][0] . '<br><br>';
+    echo 'And so on ……… <br><br>';
+    echo '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <br><br>';
+
+    // 3) Get the order items
+    $items = $order->get_items();
+
+    echo '<h3>RAW OUTPUT OF THE ORDER ITEMS DATA (ARRAY): </h3>';
+
+    foreach ( $items as $item_id => $item_data ) {
+
+        echo '<h4>RAW OUTPUT OF THE ORDER ITEM NUMBER: '. $item_id .'): </h4>';
+        print_r($item);
+        echo '<br><br>';
+        echo 'Item ID: ' . $item_id. '<br>';
+        echo '$item["product_id"] <i>(product ID)</i>: ' . $item['product_id'] . '<br>';
+        echo '$item["name"] <i>(product Name)</i>: ' . $item['name'] . '<br>';
+
+        // Using get_item_meta() method
+        echo 'Item quantity <i>(product quantity)</i>: ' . $order->get_item_meta($item_id, '_qty', true) . '<br><br>';
+        echo 'Item line total <i>(product quantity)</i>: ' . $order->get_item_meta($item_id, '_line_total', true) . '<br><br>';
+        echo 'And so on ……… <br><br>';
+        echo '- - - - - - - - - - - - - <br><br>';
+    }
+    echo '- - - - - - E N D - - - - - <br><br>';
+}
 ?>

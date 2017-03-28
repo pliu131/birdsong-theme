@@ -1,4 +1,9 @@
 jQuery(function($) {
+  $('.single-product .yoast-breadcrumb span').each(function() {
+      var text = $(this).text();
+      $(this).text(text.replace('Products', 'Shop')); 
+  });
+
   // Product Filters JS
   $('.berocket_aapf_widget_update_button').click(function() {
     $(this).parents('.product-filter').slideUp('fast', 'linear');

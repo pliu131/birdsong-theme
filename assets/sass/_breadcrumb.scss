@@ -30,3 +30,26 @@
 .woocommerce-cart .woocommerce-breadcrumb {
   display: none;
 }
+
+.yoast-breadcrumb {
+  span {
+    font-family: $font-family-serif;
+    font-weight: bold !important;
+  }
+}
+
+.single-product {
+  // hide the original nav. it's replaced by the yoast nav.
+  nav.woocommerce-breadcrumb {
+    display: none;
+  }
+  .woocommerce-breadcrumb {
+    font-size: 14px;
+  }
+
+  @media (max-width: $desktop - 1) {
+    .woocommerce-breadcrumb {
+      display: none;
+    }
+  }
+}

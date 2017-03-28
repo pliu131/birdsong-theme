@@ -7,12 +7,6 @@
       display: inline-block;
     }
   }
-
-  @media (max-width: $desktop - 1) {
-    .woocommerce-breadcrumb {
-      display: none;
-    }
-  }
 }
 
 .product-images-wrapper {
@@ -311,6 +305,7 @@ div.woocommerce-tabs {
         .label {
           font-family: $font-family-book;
           padding-bottom: 5px;
+          font-weight: normal;
         }
 
         .value {
@@ -320,7 +315,7 @@ div.woocommerce-tabs {
             font-family: $font-family-book;
             border-radius: none;
             border: 1px solid black;
-            height: 40px;
+            height: 36px;
             border-radius: 0;
             background-color: transparent;
           }
@@ -343,30 +338,6 @@ div.woocommerce-tabs {
         }
       }
     }
-
-    .quantity {
-      float: none !important;
-      display: inline-block;
-      margin-bottom: 15px;
-
-      &:before {
-        content: "Quantity";
-        display: block;
-        margin-bottom: 5px;
-        font-family: $font-family-sans-serif;
-      }
-
-      input {
-        display: inline-block;
-        background-color: transparent;
-        border: 1px solid black;
-        color: black;
-        font-family: $font-family-sans-serif;  
-        border-radius: 0;
-      }
-    }
-
-
 
     .product_meta {
       display: none;

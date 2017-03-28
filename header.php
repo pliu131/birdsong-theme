@@ -23,7 +23,7 @@
     <?php
     do_action( 'storefront_before_header' ); ?>
     
-    <div class="free-uk-shipping">Free UK Shipping</div>
+    <div class="free-uk-shipping"><a href="<?php site_url(); ?>/shipping">Free UK Shipping</a></div>
 
     <header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>">
       <div class="col-full site-header-col">

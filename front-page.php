@@ -117,6 +117,10 @@ get_header(); ?>
       </div>
     </div>
 
+    <div class="section">
+      <?php //get_order_details(28346); ?>
+    </div>
+
 
 
   </main><!-- #main -->

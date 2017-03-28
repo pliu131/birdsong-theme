@@ -63,6 +63,10 @@ table.cart {
   }
 
   .product-quantity {
+    @media (min-width: $handheld) {
+      min-width: 160px;
+    }
+
     .quantity {
       .qty {
         background-color: transparent;
@@ -146,10 +150,13 @@ table.cart {
 
       @media (max-width: $desktop - 1) {
         &.product-price,
-        &.product-quantity,
         &.product-subtotal {
-          width: 33%;
+          width: 25%;
           vertical-align: top;
+        }
+
+        &.product-quantity {
+          width: 50%;
         }
 
         &.product-remove {

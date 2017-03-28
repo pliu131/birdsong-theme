@@ -26,6 +26,12 @@
   border-bottom: 1px solid black;
   text-align: center;
 
+  a {
+    color: black;
+    font-family: $font-family-book;
+    font-weight: normal;
+  }
+
   @media (min-width: $desktop) {
     position: absolute;
     padding: 8px 10px;

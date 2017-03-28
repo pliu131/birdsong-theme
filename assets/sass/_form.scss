@@ -3,6 +3,7 @@ label {
   margin-bottom: 0.5em;
   letter-spacing: 0.1em;
   line-height: 1;
+  font-weight: normal;
 }
 
 .input-text,
@@ -46,7 +47,7 @@ input[type="radio"] {
 .woocommerce-noreviews, 
 p.no-comments {
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid transparent;
   color: black;
   border-radius: 0;
   text-align: center;

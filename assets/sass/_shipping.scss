@@ -1,0 +1,35 @@
+.shipping {
+  @include clearfix;
+  font-family: $font-family-book;
+  text-align: center;
+  margin-bottom: 15px;
+
+  &__info {
+    margin-bottom: 15px;
+
+    @media (min-width: 568px) {
+      @include span(4 of 12);
+
+      &:last-child {
+        @include omega;
+      }
+    }
+  }
+
+  &__location {
+    padding: 20px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: white;
+    background-color: $accent-color;
+    text-transform: uppercase;
+  }
+
+  &__price {
+    font-size: 48px;
+  }
+
+  &__service {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,43 @@
+.contact-form {
+  @include clearfix;
+  margin-left: -10px;
+  margin-right: -10px;
+  
+  &-row {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &--half {
+      width: 50%;
+    }
+  }
+
+  .input-text {
+    display: block;
+    width: 100%;
+  }
+
+  .button {
+    @extend %button--primary;
+  }
+
+  br {
+    display: none;
+  }
+
+  label {
+    margin-bottom: 5px;
+    font-family: $font-family-book;
+    display: block;
+
+    & + input[required] {
+      &:after {
+        content: ' *';
+        color: $accent-color;
+      }
+    }
+  }
+}
