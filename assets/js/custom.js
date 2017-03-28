@@ -1,5 +1,52 @@
 jQuery(function($) {
+  var masonryInit = true; // set Masonry init flag
 
+  $.fn.almComplete = function(alm){ // Ajax Load More callback function
+    var container = $('#masonry-grid .masonry-posts');
+    if(masonryInit){ // initialize Masonry only once
+      masonryInit = false;
+    
+      container.masonry({
+        itemSelector: '.masonry-post',
+        columnWidth: '.masonry-post',
+        percentPosition: true,
+        fitWidth: true               
+      });
+    } else {
+      container.masonry('reloadItems'); // Reload masonry items after callback
+    }
+    
+    container.imagesLoaded( function() { // When images are loaded, fire masonry again.
+      container.masonry();
+    });
+  }
+});
+
+// $(function() {
+//   var masonryInit = true; // set Masonry init flag
+//   $.fn.almComplete = function(alm){ // Ajax Load More callback function
+//     if($('#masonry-grid').length){
+//       var $container = $('#masonry-grid .masonry-posts'); // our container
+//       if(masonryInit){
+//         // initialize Masonry only once
+//         masonryInit = false;
+//         $container.masonry({
+//           itemSelector: '.masonry-post',
+//           columnWidth: '.masonry-post',
+//           percentPosition: true,
+//           fitWidth: true
+//         });         
+//       }else{
+//           $container.masonry('reloadItems'); // Reload masonry items after callback
+//         }
+//       $container.imagesLoaded( function() { // When images are loaded, fire masonry again.
+//         $container.masonry();
+//       });
+//     }
+//   };
+// })(jQuery);
+
+jQuery(function($) {
   // Checkout Page
   $('.customer-details-open').click(function(e) {
     e.preventDefault();
@@ -9,8 +56,8 @@ jQuery(function($) {
 
   // Breadcrumb Replacement
   $('.single-product .yoast-breadcrumb span').each(function() {
-      var text = $(this).text();
-      $(this).text(text.replace('Products', 'Shop')); 
+    var text = $(this).text();
+    $(this).text(text.replace('Products', 'Shop')); 
   });
 
   // Product Filters JS

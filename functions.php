@@ -82,6 +82,8 @@ function bbloomer_change_number_related_products_storefront( $args ) {
 // Enqueue Script
 
 function custom_js() {
+  wp_enqueue_script( 'imagesLoaded', 'https://unpkg.com/imagesloaded@4.1/imagesloaded.pkgd.js', array( 'jquery' ));
+  wp_enqueue_script( 'masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/4.1.1/masonry.pkgd.min.js', array( 'jquery' ));
   wp_enqueue_script( 'quantity', get_stylesheet_directory_uri() . '/assets/js/quantity.js', array( 'jquery' ));
   wp_enqueue_script( 'custom', get_stylesheet_directory_uri() . '/assets/js/custom.js', array( 'jquery' ));
   wp_enqueue_script( 'slick', 'https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', array( 'jquery' ));
