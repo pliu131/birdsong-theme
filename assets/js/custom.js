@@ -1,4 +1,13 @@
 jQuery(function($) {
+
+  // Checkout Page
+  $('.customer-details-open').click(function(e) {
+    e.preventDefault();
+    $(this).parent('.customer-details-wrapper').children('.customer-details').slideToggle('fast', 'linear');
+    $("i", this).toggleClass("fa-angle-down fa-angle-up");
+  });
+
+  // Breadcrumb Replacement
   $('.single-product .yoast-breadcrumb span').each(function() {
       var text = $(this).text();
       $(this).text(text.replace('Products', 'Shop')); 
@@ -58,22 +67,11 @@ jQuery(function($) {
     $('.main-search').slideUp('fast', 'linear');
   });
 
-  // var dropdownLinks = $('.desktop-links .menu > .menu-item-has-children > a');
-
-  // dropdownLinks.append('&nbsp;<i class="fa fa-angle-down"></i>');
-
   $('.mobile-links .menu-item-has-children').append('<span class="sub-toggle"> <i class="fa fa-angle-down"></i> </span>');
 
   
   $('.mobile-links .sub-toggle').click(function() {
     $(this).parent('.menu-item-has-children').children('ul.sub-menu').first().slideToggle('fast', 'linear');
     $("i", this).toggleClass("fa-angle-down fa-angle-up");
-    // icon = $(this).find("i").first();
-    // icon.hasClass("fa-angle-down") {
-    //   icon.addClass("fa-angle-up").removeClass("fa-angle-down");
-    // } else {
-    //   icon.addClass("fa-angle-down").removeClass("fa-angle-up");
-    // }
-    // $(this).children('.fa-angle-down').first().toggleClass('fa-angle-up');
   });
 });

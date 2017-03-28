@@ -1,0 +1,206 @@
+table tbody tr:nth-child(2n) td {
+  background-color: transparent;
+}
+
+.delta, b, dt, h4, ins, mark, strong, th {
+  font-weight: normal;
+}
+
+.woocommerce-thankyou-order-received,
+.thankyou-order-number {
+  font-family: $font-family-sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  border-bottom: none;
+  margin-bottom: 1em;
+}
+
+.woocommerce-thankyou-order-received {
+  margin-bottom: 2em;
+}
+
+// Order Products
+.order-products-wrapper {
+  border-top: 1px solid black;  
+}
+
+.order-products {
+  display: table;
+  width: 100%;
+  font-family: $font-family-book;
+  background-color: transparent;
+}
+
+.order-product {
+  // text-align: center;
+  vertical-align: middle;
+  line-height: 1.25;
+  font-size: 14px;
+  background-color: transparent;
+
+  span {
+    display: block;
+  }
+
+  .order-product__label {
+    font-family: $font-family-sans-serif;
+    margin-bottom: 1em;
+  }
+
+  strong {
+    font-weight: normal;
+    font-family: $font-family-sans-serif;
+  }
+
+  td {
+    padding: 15px 0;
+    background-color: transparent;
+
+    &.order-product__image {
+      img {
+        width: 100px;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      border-bottom: 1px solid black;
+      text-align: center;
+      padding: 30px 0;
+
+      &.order-product__image {
+        padding: 15px 0;
+      }
+      
+      &.order-product__description {
+        text-align: left;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
+      &.order-product__price,
+      &.order-product__quantity {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
+      &.order-product__subtotal {
+        padding-right: 0;
+        padding-left: 30px;
+      }
+    }
+
+
+
+    @media (max-width: $desktop - 1) {
+      display: inline-block;
+      padding: 15px 0;
+
+      &.order-product__image {
+        width: 25%;
+      }
+
+      &.order-product__description {
+        width: 75%;
+        padding-left: 15px;
+      }
+
+      &.order-product__price {
+        width: 25%;
+        border-bottom: 1px solid black;
+      }
+
+      &.order-product__quantity,
+      &.order-product__subtotal {
+        width: 37.5%;
+        border-bottom: 1px solid black;
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
+// Order Summary + Customer Details
+table.order-summary,
+table.customer-details {
+  width: 100%;
+
+  tr {
+    &.order-summary__total {
+      color: $accent-color;
+      font-family: $font-family-sans-serif;
+    }
+  }
+
+  th, td {
+    width: 50%;
+    padding: 10px 0;
+  }
+
+  td {
+    text-align: right;
+  }
+}
+
+table.customer-details {
+  display: none;
+
+  td {
+    font-family: $font-family-book;
+  }
+}
+
+// Order Summary
+.order-summary-wrapper {
+  .button {
+    display: none;
+  }
+  
+  @media (min-width: $desktop) {
+    width: 33.333333%;
+    float: right;
+
+    .button {
+      display: block;
+    }
+  }
+}
+
+
+// Customer Details
+.customer-details-wrapper {
+  margin-bottom: 15px;
+  
+  @media (min-width: $desktop) {
+    width: 33.33333%;
+    float: left;
+
+    .button {
+      display: none;
+    }
+  }
+}
+
+.customer-details-open {
+  font-size: 18px;
+  font-family: $font-family-sans-serif;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+  color: black;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  .fa {
+    float: right;
+  }
+}
+
+// Continue Button Wrapper
+.continue-button-wrapper {
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  @media (min-width: $desktop) {
+    display: none;
+  }
+}
