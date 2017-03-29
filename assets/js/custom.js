@@ -1,8 +1,10 @@
 jQuery(function($) {
+  var alm_is_animating = false // Animating flag
   var masonryInit = true; // set Masonry init flag
+  var container = $('#masonry-grid .masonry-posts');
 
+  // To make sure masonry resets
   $.fn.almComplete = function(alm){ // Ajax Load More callback function
-    var container = $('#masonry-grid .masonry-posts');
     if(masonryInit){ // initialize Masonry only once
       masonryInit = false;
     
@@ -16,35 +18,38 @@ jQuery(function($) {
       container.masonry('reloadItems'); // Reload masonry items after callback
     }
     
-    container.imagesLoaded( function() { // When images are loaded, fire masonry again.
+    container.imagesLoaded(function() { // When images are loaded, fire masonry again.
+      container.masonry();
+    });
+  }
+
+  // For the filters
+
+  $('.post-filters .post-filter').eq(0).addClass('active'); // Set initial active state
+   
+   // Btn Click Event
+   $('.post-filters .post-filter a').on('click', function(e){    
+      e.preventDefault();  
+      var el = $(this); // Our selected element     
+      
+      if(!el.hasClass('active') && !alm_is_animating){ // Check for active and !alm_is_animating  
+        alm_is_animating = true;   
+        el.parent().addClass('active').siblings('li').removeClass('active'); // Add active state
+         
+        var data = el.data(); // Get data values from selected menu item
+             
+        $.fn.almFilter('fade', 300, data); // Run the filter     
+      }      
+   });
+   
+  $.fn.almFilterComplete = function(){      
+    alm_is_animating = false; // clear animating flag
+    container.masonry('reloadItems'); // Reload masonry items after callback
+    container.imagesLoaded(function() { // When images are loaded, fire masonry again.
       container.masonry();
     });
   }
 });
-
-// $(function() {
-//   var masonryInit = true; // set Masonry init flag
-//   $.fn.almComplete = function(alm){ // Ajax Load More callback function
-//     if($('#masonry-grid').length){
-//       var $container = $('#masonry-grid .masonry-posts'); // our container
-//       if(masonryInit){
-//         // initialize Masonry only once
-//         masonryInit = false;
-//         $container.masonry({
-//           itemSelector: '.masonry-post',
-//           columnWidth: '.masonry-post',
-//           percentPosition: true,
-//           fitWidth: true
-//         });         
-//       }else{
-//           $container.masonry('reloadItems'); // Reload masonry items after callback
-//         }
-//       $container.imagesLoaded( function() { // When images are loaded, fire masonry again.
-//         $container.masonry();
-//       });
-//     }
-//   };
-// })(jQuery);
 
 jQuery(function($) {
   // Checkout Page

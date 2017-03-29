@@ -27,7 +27,8 @@
 
 .archive .col-full > .woocommerce-breadcrumb,
 .woocommerce-checkout .woocommerce-breadcrumb,
-.woocommerce-cart .woocommerce-breadcrumb {
+.woocommerce-cart .woocommerce-breadcrumb,
+.blog .woocommerce-breadcrumb {
   display: none;
 }
 

@@ -1,7 +1,17 @@
-#masonry-post-container {
-  @include clearfix;
+.masonry-posts {
   margin-left: -15px;
   margin-right: -15px;
+}
+
+#load-more,
+button.alm-load-more-btn {
+  @extend %button;
+  background: white;
+  height: 40px;
+  line-height: 1;
+  margin: 0;
+  font-weight: normal;
+  border-radius: 0;
 }
 
 .masonry-post {
@@ -40,5 +50,138 @@
   &__link {
     color: black;
   }
-
 }
+
+.post-filters {
+  @extend %list-reset;
+  letter-spacing: 0.1em;
+  font-size: 18px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+.post-filter {
+  display: inline-block;
+
+  a {
+    display: block;
+    padding: 5px 15px;
+  }
+
+  &.active {
+    a {
+      color: black;
+    }
+  }
+}
+
+// single styles
+.hentry.type-post {
+  .entry-header {
+    font-family: $font-family-book;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    font-weight: normal;
+    border-bottom: none;
+    font-weight: normal;
+
+    .entry-date {
+      margin-bottom: 1em;
+    }
+
+    .entry-title {
+      font-size: 18px;
+      font-weight: normal;
+      font-family: $font-family-book;
+    }
+  }
+
+  .entry-content {
+    width: 100%;
+    float: none;
+    margin-bottom: 30px;
+
+    p {
+      font-family: $font-family-book;
+      font-size: 18px;
+      line-height: 1.25;
+
+      a {
+        font-family: $font-family-book;
+        letter-spacing: 0;
+      }
+    }
+  }
+}
+
+#comments {
+  .comments-title {
+    border: none;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 0;
+    font-family: $font-family-book;
+  }
+}
+
+#respond {
+  background-color: transparent;
+  padding: 0;
+
+  .comment-reply-title {
+    font-size: 18px;
+    font-weight: normal;
+    font-family: $font-family-book;
+    margin-bottom: 1em;
+  }
+
+  .form-submit {
+    .submit {
+      @extend %button;
+      @extend %button--primary;
+    }
+  }
+}
+
+.author-info {
+  @include clearfix;
+  padding: 30px 0;
+  
+  @media (min-width: $desktop) {
+    padding: 30px;
+  }
+
+  .author__image {
+    float: left;
+    display: block;
+
+    img {
+      width: 100px;
+    }
+  }
+
+  .author__description {
+    float: left;
+    font-size: 18px;
+    padding-left: 15px;
+    font-size: 18px;
+    padding-top: 15px;
+
+    @media (min-width: $desktop) {
+      padding-left: 30px;
+    }
+    
+    p {
+      line-height: 1.25;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .author__name {
+    font-family: $font-family-book;
+  }
+
+  .author__email {}
+}
+

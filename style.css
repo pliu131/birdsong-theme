@@ -25,7 +25,7 @@ Images License: GNU General Public License v2 or later
 /*
  * Add your own custom css below this text.
  */
-.mobile-links .menu, .mobile-links .menu .sub-menu, .desktop-links ul, .desktop-links .menu > .menu-item > .sub-menu, .social-items, .sourcing-details, .section--press .press-items {
+.mobile-links .menu, .mobile-links .menu .sub-menu, .desktop-links ul, .desktop-links .menu > .menu-item > .sub-menu, .social-items, .sourcing-details, .section--press .press-items, .post-filters {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -342,7 +342,10 @@ input[type="submit"] {
 .woocommerce-checkout form.login .button,
 #payment .place-order .button,
 .site-header .widget_shopping_cart .buttons .button,
-.product-filter .berocket_aapf_widget_update_button {
+.product-filter .berocket_aapf_widget_update_button,
+#load-more,
+button.alm-load-more-btn,
+#respond .form-submit .submit {
   font-family: "relative-bold", sans-serif !important;
   padding: 0.3em 1em;
   font-size: 18px;
@@ -357,16 +360,25 @@ input[type="submit"] {
 #payment .place-order .button:hover,
 .site-header .widget_shopping_cart .buttons .button:hover,
 .product-filter .berocket_aapf_widget_update_button:hover,
+#load-more:hover,
+button.alm-load-more-btn:hover,
+#respond .form-submit .submit:hover,
 .woocommerce-account .button:active,
 .woocommerce-checkout form.login .button:active,
 #payment .place-order .button:active,
 .site-header .widget_shopping_cart .buttons .button:active,
 .product-filter .berocket_aapf_widget_update_button:active,
+#load-more:active,
+button.alm-load-more-btn:active,
+#respond .form-submit .submit:active,
 .woocommerce-account .button:focus,
 .woocommerce-checkout form.login .button:focus,
 #payment .place-order .button:focus,
 .site-header .widget_shopping_cart .buttons .button:focus,
-.product-filter .berocket_aapf_widget_update_button:focus {
+.product-filter .berocket_aapf_widget_update_button:focus,
+#load-more:focus,
+button.alm-load-more-btn:focus,
+#respond .form-submit .submit:focus {
   background-color: white;
   color: black;
   border-color: 1px solid black;
@@ -379,7 +391,8 @@ input[type="submit"] {
 #payment .place-order .button,
 .site-header .widget_shopping_cart .buttons .button.checkout,
 .product-filter .berocket_aapf_widget_update_button,
-.contact-form .button {
+.contact-form .button,
+#respond .form-submit .submit {
   background-color: #fa6560;
   color: white;
   border: 1px solid #fa6560 !important;
@@ -391,18 +404,21 @@ input[type="submit"] {
 .site-header .widget_shopping_cart .buttons .button.checkout:hover,
 .product-filter .berocket_aapf_widget_update_button:hover,
 .contact-form .button:hover,
+#respond .form-submit .submit:hover,
 .woocommerce-account .button:active,
 .woocommerce-checkout form.login .button:active,
 #payment .place-order .button:active,
 .site-header .widget_shopping_cart .buttons .button.checkout:active,
 .product-filter .berocket_aapf_widget_update_button:active,
 .contact-form .button:active,
+#respond .form-submit .submit:active,
 .woocommerce-account .button:focus,
 .woocommerce-checkout form.login .button:focus,
 #payment .place-order .button:focus,
 .site-header .widget_shopping_cart .buttons .button.checkout:focus,
 .product-filter .berocket_aapf_widget_update_button:focus,
-.contact-form .button:focus {
+.contact-form .button:focus,
+#respond .form-submit .submit:focus {
   background-color: white;
   color: #fa6560;
   border: 1px solid #fa6560 !important;
@@ -539,7 +555,8 @@ p.no-comments strong {
 
 .archive .col-full > .woocommerce-breadcrumb,
 .woocommerce-checkout .woocommerce-breadcrumb,
-.woocommerce-cart .woocommerce-breadcrumb {
+.woocommerce-cart .woocommerce-breadcrumb,
+.blog .woocommerce-breadcrumb {
   display: none;
 }
 
@@ -3095,14 +3112,19 @@ table.customer-details td {
   }
 }
 
-#masonry-post-container {
+.masonry-posts {
   margin-left: -15px;
   margin-right: -15px;
 }
-#masonry-post-container:after {
-  content: "";
-  display: table;
-  clear: both;
+
+#load-more,
+button.alm-load-more-btn {
+  background: white;
+  height: 40px;
+  line-height: 1;
+  margin: 0;
+  font-weight: normal;
+  border-radius: 0;
 }
 
 .masonry-post {
@@ -3136,6 +3158,115 @@ table.customer-details td {
 }
 .masonry-post__link {
   color: black;
+}
+
+.post-filters {
+  letter-spacing: 0.1em;
+  font-size: 18px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+}
+
+.post-filter {
+  display: inline-block;
+}
+.post-filter a {
+  display: block;
+  padding: 5px 15px;
+}
+.post-filter.active a {
+  color: black;
+}
+
+.hentry.type-post .entry-header {
+  font-family: "relative-book", sans-serif !important;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  font-weight: normal;
+  border-bottom: none;
+  font-weight: normal;
+}
+.hentry.type-post .entry-header .entry-date {
+  margin-bottom: 1em;
+}
+.hentry.type-post .entry-header .entry-title {
+  font-size: 18px;
+  font-weight: normal;
+  font-family: "relative-book", sans-serif !important;
+}
+.hentry.type-post .entry-content {
+  width: 100%;
+  float: none;
+  margin-bottom: 30px;
+}
+.hentry.type-post .entry-content p {
+  font-family: "relative-book", sans-serif !important;
+  font-size: 18px;
+  line-height: 1.25;
+}
+.hentry.type-post .entry-content p a {
+  font-family: "relative-book", sans-serif !important;
+  letter-spacing: 0;
+}
+
+#comments .comments-title {
+  border: none;
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 0;
+  font-family: "relative-book", sans-serif !important;
+}
+
+#respond {
+  background-color: transparent;
+  padding: 0;
+}
+#respond .comment-reply-title {
+  font-size: 18px;
+  font-weight: normal;
+  font-family: "relative-book", sans-serif !important;
+  margin-bottom: 1em;
+}
+
+.author-info {
+  padding: 30px 0;
+}
+.author-info:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media (min-width: 768px) {
+  .author-info {
+    padding: 30px;
+  }
+}
+.author-info .author__image {
+  float: left;
+  display: block;
+}
+.author-info .author__image img {
+  width: 100px;
+}
+.author-info .author__description {
+  float: left;
+  font-size: 18px;
+  padding-left: 15px;
+  font-size: 18px;
+  padding-top: 15px;
+}
+@media (min-width: 768px) {
+  .author-info .author__description {
+    padding-left: 30px;
+  }
+}
+.author-info .author__description p {
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+}
+.author-info .author__name {
+  font-family: "relative-book", sans-serif !important;
 }
 
 .text--center {
