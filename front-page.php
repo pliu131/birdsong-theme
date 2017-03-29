@@ -116,13 +116,6 @@ get_header(); ?>
         </ul>
       </div>
     </div>
-
-    <div class="section">
-      <?php //get_order_details(28346); ?>
-    </div>
-
-
-
   </main><!-- #main -->
 </div><!-- #primary -->
 

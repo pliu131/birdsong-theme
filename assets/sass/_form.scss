@@ -41,6 +41,13 @@ input[type="radio"] {
   margin-right: 0.5em;
 }
 
+input[type="button"] {
+  &:hover, &:active, &:focus {
+    background-color: transparent;
+    outline: none;
+  }
+}
+
 .woocommerce-error, 
 .woocommerce-info, 
 .woocommerce-message, 
