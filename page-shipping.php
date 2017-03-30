@@ -15,26 +15,28 @@ get_header(); ?>
 <div id="primary" class="content-area">
   <main id="main" class="site-main" role="main">
 
-    <div class="shipping">
-      <div class="shipping__info">
-        <h2 class="shipping__location">FREE SHIPPING FOR UK ORDERS</h2>
-        <div class="shipping__price">£0</div>
-        <div class="shipping__service">MyHermes courier service</div>
-        <div class="shipping__time">Up to 4 working days from the date of shipping.</div>
-      </div>
-
-      <div class="shipping__info">
-        <h2 class="shipping__location">Europe</h2>
-        <div class="shipping__price">£5</div>
-        <div class="shipping__service">Royal Mail</div>
-        <div class="shipping__time">Up to 7 working days from the date of shipping. Customs charges may apply.</div>
-      </div>
-
-      <div class="shipping__info">
-        <h2 class="shipping__location">Rest of World</h2>
-        <div class="shipping__price">£9</div>
-        <div class="shipping__service">Royal Mail</div>
-        <div class="shipping__time">Up to 14 working days from the date of shipping. Customs charges may apply.</div>
+    <div class="shipping-wrapper">
+      <div class="shipping">
+        <div class="shipping__info">
+          <h2 class="shipping__location">FREE SHIPPING FOR UK ORDERS</h2>
+          <div class="shipping__price">£0</div>
+          <div class="shipping__service">MyHermes courier service</div>
+          <div class="shipping__time">Up to 4 working days from the date of shipping.</div>
+        </div>
+      
+        <div class="shipping__info">
+          <h2 class="shipping__location">Europe</h2>
+          <div class="shipping__price">£5</div>
+          <div class="shipping__service">Royal Mail</div>
+          <div class="shipping__time">Up to 7 working days from the date of shipping. Customs charges may apply.</div>
+        </div>
+      
+        <div class="shipping__info">
+          <h2 class="shipping__location">Rest of World</h2>
+          <div class="shipping__price">£9</div>
+          <div class="shipping__service">Royal Mail</div>
+          <div class="shipping__time">Up to 14 working days from the date of shipping. Customs charges may apply.</div>
+        </div>
       </div>
     </div>
 

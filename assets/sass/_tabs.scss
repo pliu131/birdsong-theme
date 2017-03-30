@@ -1,0 +1,98 @@
+// WooCommerce Tabs
+div.woocommerce-tabs {
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  .after-single-product & {
+    display: none;
+  }
+}
+
+
+.single-product .woocommerce-tabs,
+.storefront-full-width-content .woocommerce-tabs {
+  .panel {
+    width: 100%;
+    margin: 0;
+  }
+
+  ul.product-tabs {
+    @extend %list-reset;
+    border: none;
+
+    li {
+      border: none;
+
+      a {
+        color: black;
+        position: relative;
+        width: 100%;
+        display: block;
+        text-align: left;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      .fa {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &.active {
+        a {
+          .fa {
+            transform: translateY(-50%) rotate(180deg);
+
+          }  
+        }
+      }
+
+      a {
+        position: relative;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      width: 100%;
+      margin-right: 0;
+      text-align: center;
+
+      li {
+        display: inline-block;
+        padding-right-right: 1em;
+
+        a {
+          font-size: 14px;
+          padding: 1em 2em 1em 0;
+        }
+
+        .fa {
+          right: 1em;
+        }
+      }
+    }
+  }
+}
+
+.product-panel {
+  &--mobile {
+    @media (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  &--desktop {
+    display: none;
+
+    @media (min-width: $desktop) {
+      display: block;
+    }
+  }
+}

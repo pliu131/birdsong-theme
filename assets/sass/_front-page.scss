@@ -67,6 +67,7 @@ ul.wpb_thumbnails-fluid>li {
       height: 0;
       width: 100%;
       margin-bottom: gutter();
+      display: block;
 
       &--square {
         padding-bottom: 100%;

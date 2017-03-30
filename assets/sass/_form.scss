@@ -41,12 +41,16 @@ input[type="radio"] {
   margin-right: 0.5em;
 }
 
+
+.main-search__close,
 input[type="button"] {
   &:hover, &:active, &:focus {
-    background-color: transparent;
-    outline: none;
+    background-color: transparent !important;
+    outline: none !important;
   }
 }
+
+
 
 .woocommerce-error, 
 .woocommerce-info, 
@@ -61,6 +65,14 @@ p.no-comments {
   font-family: $font-family-book;
   font-weight: normal;
 
+  a {
+    color: black;
+
+    &:hover, &:active, &:focus {
+      color: black;
+    }
+  }
+
   li, strong {
     font-family: $font-family-book;
     font-weight: normal;
@@ -70,6 +82,14 @@ p.no-comments {
 .woocommerce-error {
   border: 1px solid $accent-color;
   color: $accent-color;
+
+  a {
+    color: $accent-color;
+
+    &:hover, &:active, &:focus {
+      color: $accent-color;
+    }
+  }
 }
 
 .form-row.woocommerce-invalid {

@@ -7,6 +7,19 @@
       display: inline-block;
     }
   }
+
+  @media (min-width: $desktop) {
+    .product {
+      padding-top: 30px;
+    }
+  }
+
+  .entry-content .addthis_toolbox, 
+  .entry-content .addthis_button, 
+  .entry-header .addthis_toolbox, 
+  .entry-header .addthis_button {
+    display: none !important;
+  }
 }
 
 .product-images-wrapper {
@@ -62,63 +75,6 @@
     .sourcing-detail {
       width: 20%;
       white-space: normal;
-    }
-  }
-}
-
-// WooCommerce Tabs
-div.woocommerce-tabs {
-  font-size: 14px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-
-  .after-single-product & {
-    display: none;
-  }
-
-  .single-product &,
-  .storefront-full-width-content & {
-
-    ul.tabs {
-      border: none;
-
-      li {
-        border: none;
-
-        a {
-          color: black;
-        }
-      }
-
-      @media (min-width: 768px) {
-        width: 100%;
-        margin-right: 0;
-        text-align: center;
-
-        li {
-          display: inline-block;
-          margin-right: 1em;
-
-          &:last-child {
-            margin-right: 0;
-          }
-
-          &:after {
-            content: '\f107';
-            right: 0;
-          }
-
-          a {
-            font-size: 14px;
-            padding: 1em 1.5em 1em 0;
-          }
-        }
-      }
-    }
-
-    .panel {
-      width: 100%;
-      margin: 0;
     }
   }
 }

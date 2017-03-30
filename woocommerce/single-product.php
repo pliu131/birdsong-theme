@@ -23,14 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header( 'shop' ); ?>
 
 <?php
-if ( function_exists('yoast_breadcrumb') ) {
-	yoast_breadcrumb('
-		<div class="woocommerce-breadcrumb yoast-breadcrumb">','</div>
-		');
-}
-?>
-
-<?php
 		/**
 		 * woocommerce_before_main_content hook.
 		 *

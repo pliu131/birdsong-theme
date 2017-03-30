@@ -101,6 +101,8 @@ function my_wc_add_cart_ajax() {
 
   if ($variation_id) {
     WC()->cart->add_to_cart( $product_id, $quantity, $variation_id );
+  } elseif (!$quantity) {
+    WC()->cart->add_to_cart( $product_id, 1);
   } else {
     WC()->cart->add_to_cart( $product_id, $quantity);
   }
@@ -110,7 +112,7 @@ function my_wc_add_cart_ajax() {
     <?php echo WC()->cart-> get_cart_contents_count() ?>
   </span>
 
-  <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/shopping-bag.png" alt="">
+  <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/shopping-bag.svg" alt="">
 
   <div class="navigation-cart">
     <div class="navigation-cart__content">

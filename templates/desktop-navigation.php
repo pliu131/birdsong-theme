@@ -26,9 +26,12 @@
     <div class="site-controls">
       <!-- Still want to update this -->
       <a id="cart-button" class="site-control site-control--cart" href="<?php echo $cart_url ?>" title="Checkout">
-        <span class="cart-item-count">
-          <?php echo $woocommerce->cart-> get_cart_contents_count() ?>
-        </span>
+        <?php $cart_item_count = WC()->cart-> get_cart_contents_count() ?>
+        <?php if ($cart_item_count > 0) : ?>
+          <span class="cart-item-count">
+            <?php echo $cart_item_count; ?>
+          </span>
+        <?php endif; ?>
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/shopping-bag.svg" alt="">
 
         <div class="navigation-cart">

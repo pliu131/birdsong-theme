@@ -1,5 +1,5 @@
-.update-cart-button {
-  display: none;
+.button.update-cart-button {
+  display: none !important;
 }
 
 // General Cart Everywhere
@@ -273,6 +273,7 @@ table.cart {
       display: block;
       text-align: left;
       margin-bottom: 15px;
+      font-size: 14px;
     }
   }
 }

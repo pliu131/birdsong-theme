@@ -18,15 +18,22 @@ get_header(); ?>
 
 
     <?php while ( have_posts() ) : the_post();
-      get_template_part( 'content', 'page' );
+    get_template_part( 'content', 'page' );
     endwhile;?>
 
     <?php 
-      $image1 = get_field('home_page_image_1');
-      $image2 = get_field('home_page_image_2');
-      $image3 = get_field('home_page_image_3');
-      $image4 = get_field('home_page_image_4');
-      $image5 = get_field('home_page_image_5');
+    $image1 = get_field('home_page_image_1');
+    $image2 = get_field('home_page_image_2');
+    $image3 = get_field('home_page_image_3');
+    $image4 = get_field('home_page_image_4');
+    $image5 = get_field('home_page_image_5');
+
+    $imagelink1 = get_field('home_page_image_link_1');
+    $imagelink2 = get_field('home_page_image_link_2');
+    $imagelink3 = get_field('home_page_image_link_3');
+    $imagelink4 = get_field('home_page_image_link_4');
+    $imagelink5 = get_field('home_page_image_link_5');
+
     ?>
 
     <div class="section section--images">
@@ -36,35 +43,55 @@ get_header(); ?>
 
       <div class="section__part">
         <?php if ($image1): ?>
-        <div class="section__image section__image--square" style="background-image: url(<?php echo $image1['url'] ?>)"></div>
+          <?php if ($imagelink1) : ?>
+            <a href="<?php echo $imagelink1 ?>" class="section__image section__image--square" style="background-image: url(<?php echo $image1['url'] ?>)"></a>
+          <?php else: ?>  
+            <div class="section__image section__image--square" style="background-image: url(<?php echo $image1['url'] ?>)"></div>
+          <?php endif; ?>
         <?php endif; ?>
 
         <?php if ($image2): ?>
-        <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image2['url'] ?>)"></div>
+          <?php if ($imagelink2) : ?>
+            <a href="<?php echo $imagelink2 ?>" class="section__image section__image--rectangle" style="background-image: url(<?php echo $image4['url'] ?>)"></a>
+          <?php else: ?>  
+            <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image2['url'] ?>)"></div>
+          <?php endif; ?>
         <?php endif; ?>
       </div>
 
       <div class="section__part section__part--desktop">
         <?php if (get_field('home_page_content')): ?>
-        <div class="section__text-wrapper">
-          <div class="section__text">
-            <?php the_field('home_page_content') ?>
+          <div class="section__text-wrapper">
+            <div class="section__text">
+              <?php the_field('home_page_content') ?>
+            </div>
           </div>
-        </div>
         <?php endif; ?>
 
         <?php if ($image3): ?>
-        <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image3['url'] ?>)"></div>
+          <?php if ($imagelink3) : ?>
+            <a href="<?php echo $imagelink4 ?>" class="section__image section__image--rectangle" style="background-image: url(<?php echo $image3['url'] ?>)"></a>
+          <?php else: ?>  
+            <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image3['url'] ?>)"></div>
+          <?php endif; ?>
         <?php endif; ?>
       </div>
 
       <div class="section__part">
         <?php if ($image4): ?>
-        <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image4['url'] ?>)"></div>
+          <?php if ($imagelink4) : ?>
+            <a href="<?php echo $imagelink4 ?>" class="section__image section__image--rectangle" style="background-image: url(<?php echo $image4['url'] ?>)"></a>
+          <?php else: ?>  
+            <div class="section__image section__image--rectangle" style="background-image: url(<?php echo $image4['url'] ?>)"></div>
+          <?php endif; ?>
         <?php endif; ?>
 
         <?php if ($image5): ?>
-        <div class="section__image section__image--square" style="background-image: url(<?php echo $image5['url'] ?>)"></div>
+          <?php if ($imagelink5) : ?>
+            <a href="<?php echo $imagelink5 ?>" class="section__image section__image--square" style="background-image: url(<?php echo $image5['url'] ?>)"></a>
+          <?php else: ?> 
+            <div class="section__image section__image--square" style="background-image: url(<?php echo $image5['url'] ?>)"></div>
+          <?php endif; ?>
         <?php endif; ?>
       </div>
     </div>
@@ -106,7 +133,7 @@ get_header(); ?>
           <li class="press-item"><a href="http://www.teenvogue.com/gallery/feminist-clothing-brands-2016#2"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-1.png" alt=""></a></li>
           <li class="press-item">
             <a href="http://www.theguardian.com/fashion/2015/nov/04/do-your-clothes-pass-the-feminist-test"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-2.png" alt=""></a>
-            </li>
+          </li>
           <li class="press-item">
             <a href="https://i-d.vice.com/en_gb/article/support-fashion-against-funding-cuts-on-international-womens-day"><img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/press-3.png" alt=""></a>
           </li>

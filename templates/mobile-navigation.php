@@ -18,6 +18,12 @@
       ?>
       <div class="site-controls">
         <a href="<?php echo $cart_url ?>" class="site-control" id="cart-button-mobile">
+          <?php $cart_item_count = WC()->cart-> get_cart_contents_count() ?>
+          <?php if ($cart_item_count > 0) : ?>
+          <span class="cart-item-count">
+            <?php echo $cart_item_count; ?>
+          </span>
+          <?php endif; ?>
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/shopping-bag.svg" alt="">
         </a>
 

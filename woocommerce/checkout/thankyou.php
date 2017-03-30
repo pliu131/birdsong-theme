@@ -39,7 +39,7 @@ if ( $order ) : ?>
 <?php else : ?>
 
 	<h3 class="woocommerce-thankyou-order-received">
-		<?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?>
+		<?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you for supporting women. Your order has been received.', 'woocommerce' ), $order ); ?>
 	</h3>
 
 	<h4 class="thankyou-order-number">

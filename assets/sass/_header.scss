@@ -67,8 +67,9 @@ button.main-toggle {
   box-shadow: none;
   vertical-align: middle;
 
-  &:focus {
+  &:focus, &:active, &:hover {
     outline: none;
+    background-color: transparent;
   }
 
   span,
@@ -76,7 +77,7 @@ button.main-toggle {
   &:after {
     content: '';
     display: block;
-    width: 30px;
+    width: 27px;
     height: 2px;
     background-color: black;
     transition: all 0.2s ease-out;
@@ -85,11 +86,11 @@ button.main-toggle {
   }
 
   &:before {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 
   &:after {
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
 
   &.menu-open {
@@ -157,6 +158,18 @@ button.main-toggle {
   .mobile-navigation-wrapper {
     @media (min-width: $desktop) {
       display: none;
+    }
+
+    .site-controls {
+      .site-control {
+        height: 30px; 
+        width: 30px;
+      }
+    }
+
+    .cart-item-count {
+      line-height: 30px;
+      right: 30px;
     }
 
     .site-toggle,
@@ -239,6 +252,8 @@ button.main-toggle {
 .site-controls {
   display: inline-block;
   text-align: right;
+  position: relative;
+  right: -10px;
 
   .site-control {
     color: black;
@@ -252,7 +267,7 @@ button.main-toggle {
     vertical-align: middle;
 
     > img {
-      width: 24px;
+      width: 22px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -350,6 +365,16 @@ button.main-toggle {
       font-size: 18px;
     }
 
+    > .menu-item {
+      > .sub-menu {
+        > li {
+          > a {
+              color: $accent-color;
+          }
+        }
+      }
+    }
+
     .sub-toggle {
       position: absolute;
       top: 0px;
@@ -368,9 +393,9 @@ button.main-toggle {
       margin: 0;
       display: none;
 
-      a {
-        color: $accent-color;
-      }
+      // a {
+      //   color: $accent-color;
+      // }
     }
   }
 }

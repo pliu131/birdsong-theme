@@ -124,6 +124,8 @@ ul.products {
   .storefront-full-width-content.single-product .related & {
     li.product {
       @include product-styles-4;
+      padding-top: 0;
+      overflow: hidden;
     }
   }
 }

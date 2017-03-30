@@ -26,7 +26,7 @@ get_header(); ?>
       if( $terms = get_terms( 'category', 'orderby=name' ) ) :
     ?>
     <ul class="post-filters">
-      <li class="post-filter">Sort Blog:</li>
+      <li class="post-filter post-filter--title"><span>Sort Blog:</span></li>
       <li class="post-filter active">
         <a href="#" 
           data-post-type="post" 

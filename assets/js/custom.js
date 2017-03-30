@@ -1,4 +1,28 @@
 jQuery(function($) {
+  // Product Tabs Stuff
+  // Remove the initial active
+
+  $('.product-tabs .product-tab.active').removeClass('active');
+  $('.product-tabs .product-tab a').click(function(e) {
+    e.preventDefault();
+    tab = $(this).parent();
+    target = $(this).attr('href');
+    target_panel = $(target);
+    console.log(tab + target + target_panel);
+
+    if (tab.hasClass('active')) {
+      tab.removeClass('active');
+      $('.product-panel').hide();
+    } else {
+      $('.product-tab').removeClass('active');
+      $(".product-panel").hide();
+      tab.addClass('active');
+      target_panel.show();
+      
+    }
+  });
+
+  // Masonry Stuff
   var alm_is_animating = false // Animating flag
   var masonryInit = true; // set Masonry init flag
   var container = $('#masonry-grid .masonry-posts');
